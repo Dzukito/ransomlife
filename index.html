@@ -6,39 +6,38 @@
   <title>Ransomlife: Invierno de Carbón</title>
   <style>
     :root {
-      --void: #05040a;
-      --bg: #090714;
-      --panel: #130e1d;
-      --panel-2: #20172b;
-      --ink: #f7edff;
-      --muted: #b2a3c5;
-      --muted-2: #6e6280;
-      --magenta: #ff3d8f;
-      --violet: #7b4dff;
-      --cyan: #4fe5ff;
-      --green: #82f59f;
-      --amber: #ffd166;
-      --red: #ff5568;
-      --snow: #dcecff;
-      --outline: #06040d;
-      --shadow: rgba(0, 0, 0, .72);
-      --ui: rgba(19, 14, 29, .94);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --bg-0: #06050b;
+      --bg-1: #100b18;
+      --panel: rgba(18, 14, 28, .92);
+      --panel-2: rgba(31, 23, 45, .92);
+      --ink: #fbf4ff;
+      --muted: #b7aac8;
+      --soft: #75687f;
+      --rose: #ff4f9a;
+      --rose-2: #ff9ac8;
+      --cyan: #66e7ff;
+      --blue: #5a74ff;
+      --green: #8cf3a9;
+      --gold: #ffd36e;
+      --red: #ff6276;
+      --line: rgba(255,255,255,.13);
+      --dark-line: #08050d;
+      --shadow: rgba(0, 0, 0, .62);
+      --radius: 22px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
-
-    html { background: var(--void); }
-
+    html { min-height: 100%; background: var(--bg-0); }
     body {
       margin: 0;
       min-height: 100vh;
       color: var(--ink);
       background:
-        radial-gradient(circle at 15% 5%, rgba(255, 61, 143, .18), transparent 28%),
-        radial-gradient(circle at 78% 8%, rgba(79, 229, 255, .12), transparent 26%),
-        radial-gradient(circle at 45% 95%, rgba(123, 77, 255, .16), transparent 30%),
-        linear-gradient(180deg, #090714 0%, #120d1d 48%, #05040a 100%);
+        radial-gradient(circle at 16% 4%, rgba(255,79,154,.28), transparent 30%),
+        radial-gradient(circle at 82% 7%, rgba(102,231,255,.18), transparent 27%),
+        radial-gradient(circle at 58% 100%, rgba(90,116,255,.18), transparent 35%),
+        linear-gradient(180deg, #080611 0%, #120d1b 48%, #05040a 100%);
       overflow-x: hidden;
     }
 
@@ -48,559 +47,511 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 50;
+      z-index: 40;
     }
-
     body::before {
-      background:
-        repeating-linear-gradient(to bottom, rgba(255,255,255,.035), rgba(255,255,255,.035) 1px, transparent 1px, transparent 5px),
-        linear-gradient(90deg, transparent 0 2%, rgba(255,61,143,.035) 2.2% 2.5%, transparent 2.7% 100%);
+      opacity: .23;
+      background: linear-gradient(115deg, transparent 0 46%, rgba(255,255,255,.12) 47%, transparent 48% 100%);
       mix-blend-mode: screen;
-      opacity: .62;
     }
-
     body::after {
-      background: radial-gradient(circle at center, transparent 0 56%, rgba(0,0,0,.48) 100%);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.025), transparent 35%, rgba(0,0,0,.16)),
+        radial-gradient(circle at center, transparent 0 62%, rgba(0,0,0,.45) 100%);
     }
 
     .app {
       display: grid;
-      grid-template-columns: minmax(292px, 386px) minmax(560px, 1fr) minmax(250px, 320px);
+      grid-template-columns: minmax(300px, 390px) minmax(620px, 1fr) minmax(280px, 340px);
       gap: 18px;
-      max-width: 1580px;
+      max-width: 1660px;
       margin: 0 auto;
       padding: 18px;
     }
 
-    .chrome {
-      border: 2px solid rgba(255,255,255,.1);
-      background: linear-gradient(180deg, rgba(32,23,43,.96), rgba(11,8,17,.96));
-      box-shadow: 0 8px 0 rgba(0,0,0,.28), 0 24px 60px var(--shadow);
+    .glass {
+      background: linear-gradient(180deg, rgba(30,23,43,.94), rgba(10,8,16,.94));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 70px var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
     }
 
     header {
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 18px;
       align-items: center;
-      padding: 16px 18px;
-      position: relative;
+      gap: 18px;
+      padding: 18px 22px;
       overflow: hidden;
+      position: relative;
     }
-
     header::after {
       content: "";
       position: absolute;
-      inset: auto -10% -18px 35%;
-      height: 42px;
-      background: linear-gradient(90deg, transparent, rgba(79,229,255,.22), rgba(255,61,143,.24), transparent);
-      filter: blur(10px);
+      right: -120px;
+      bottom: -50px;
+      width: 430px;
+      height: 130px;
+      background: linear-gradient(90deg, transparent, rgba(255,79,154,.22), rgba(102,231,255,.18), transparent);
+      filter: blur(13px);
+      transform: rotate(-6deg);
     }
-
-    h1 { margin: 0; font-size: clamp(24px, 3vw, 44px); letter-spacing: 2px; text-transform: uppercase; }
-    h1 span { color: var(--magenta); text-shadow: 3px 3px 0 #521231, 0 0 20px rgba(255,61,143,.45); }
-    .subtitle { margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.5; max-width: 880px; }
-    .build-tag { color: var(--cyan); border: 1px solid rgba(79,229,255,.25); padding: 4px 8px; background: rgba(79,229,255,.08); font-size: 12px; display: inline-block; margin-top: 8px; }
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 3.4vw, 56px);
+      line-height: .96;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+    h1 span { color: var(--rose); text-shadow: 0 0 30px rgba(255,79,154,.45); }
+    .subtitle { margin-top: 9px; max-width: 960px; color: var(--muted); line-height: 1.5; font-size: 14px; }
+    .version { display: inline-flex; margin-top: 10px; padding: 6px 10px; color: var(--cyan); border: 1px solid rgba(102,231,255,.28); background: rgba(102,231,255,.08); border-radius: 999px; font-size: 12px; }
 
     button {
-      cursor: pointer;
-      border: 2px solid rgba(255,255,255,.13);
-      background: linear-gradient(180deg, #3a284b, #1b1225);
+      border: 1px solid rgba(255,255,255,.16);
       color: var(--ink);
-      padding: 10px 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .9px;
-      box-shadow: 0 5px 0 #06040d;
-      transition: transform .08s, filter .08s, border-color .08s;
+      background: linear-gradient(180deg, rgba(82,55,112,.95), rgba(31,21,44,.95));
+      border-radius: 14px;
+      padding: 11px 13px;
+      font-weight: 850;
+      letter-spacing: .2px;
+      cursor: pointer;
+      box-shadow: 0 9px 24px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.1);
+      transition: transform .12s ease, filter .12s ease, border-color .12s ease;
     }
-    button:hover, button:focus { outline: 2px solid rgba(79,229,255,.9); filter: brightness(1.18); transform: translateY(-1px); }
-    button:disabled { cursor: not-allowed; opacity: .45; transform: none; filter: grayscale(.7); }
-    .ghost { background: linear-gradient(180deg, #182436, #0c121d); }
-    .danger-btn { background: linear-gradient(180deg, #5a1830, #25101a); }
-    .safe-btn { background: linear-gradient(180deg, #1c4431, #102317); }
+    button:hover, button:focus { transform: translateY(-1px); filter: brightness(1.16); outline: 2px solid rgba(102,231,255,.5); border-color: rgba(102,231,255,.5); }
+    button:disabled { opacity: .45; cursor: not-allowed; transform: none; filter: grayscale(.7); }
+    .btn-ghost { background: linear-gradient(180deg, rgba(28,40,62,.95), rgba(13,17,29,.95)); }
+    .btn-safe { background: linear-gradient(180deg, rgba(28,80,54,.95), rgba(14,36,25,.95)); }
+    .btn-danger { background: linear-gradient(180deg, rgba(94,29,48,.95), rgba(38,14,22,.95)); }
+    .btn-gold { background: linear-gradient(180deg, rgba(119,82,24,.95), rgba(48,30,12,.95)); }
 
-    h2, h3 { margin: 0 0 10px; letter-spacing: 1px; }
-    h2 { font-size: 18px; text-transform: uppercase; color: var(--cyan); }
-    h3 { font-size: 14px; color: var(--amber); }
+    h2, h3 { margin: 0 0 11px; }
+    h2 { color: var(--cyan); font-size: 17px; text-transform: uppercase; letter-spacing: 1.4px; }
+    h3 { color: var(--gold); font-size: 14px; letter-spacing: .7px; }
 
-    .panel { padding: 14px; }
-    .portrait-card { display: grid; grid-template-columns: 88px 1fr; gap: 12px; margin-bottom: 12px; }
-    .portrait {
+    .panel { padding: 16px; }
+    .portrait-card { display: grid; grid-template-columns: 118px 1fr; gap: 13px; align-items: center; margin-bottom: 14px; }
+    .anime-portrait {
+      height: 148px;
+      border-radius: 28px;
       position: relative;
-      height: 104px;
-      background:
-        linear-gradient(180deg, rgba(79,229,255,.12), transparent),
-        linear-gradient(135deg, #20172b, #0b0812);
-      border: 3px solid var(--outline);
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,.05), 6px 6px 0 rgba(0,0,0,.32);
-      image-rendering: pixelated;
       overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 6%, rgba(255,255,255,.18), transparent 22%),
+        linear-gradient(145deg, rgba(102,231,255,.18), rgba(255,79,154,.08) 48%, rgba(0,0,0,.24)),
+        #171020;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 0 35px rgba(102,231,255,.08), 0 18px 38px rgba(0,0,0,.35);
     }
-    .portrait::before {
-      content: "";
+    .anime-portrait .hair {
       position: absolute;
-      left: 27px; top: 14px;
-      width: 34px; height: 38px;
-      background: #d99a82;
-      border: 4px solid var(--outline);
-      box-shadow:
-        inset 9px 0 0 #302033,
-        0 -10px 0 -1px #17101d,
-        0 34px 0 8px #1a2038,
-        -18px 50px 0 -7px #252b46,
-        18px 50px 0 -7px #121729;
+      left: 28px; top: 16px; width: 62px; height: 68px;
+      border-radius: 42% 58% 48% 52% / 42% 46% 54% 58%;
+      background: linear-gradient(135deg, #191126, #33233a 55%, #0e0b14);
+      box-shadow: -12px 12px 0 #15101d, 18px 5px 0 #21172a;
+      animation: hairFloat 3.4s ease-in-out infinite;
     }
-    .portrait::after {
-      content: "";
+    .anime-portrait .face {
       position: absolute;
-      left: 37px; top: 31px;
-      width: 7px; height: 4px;
-      background: var(--cyan);
-      box-shadow: 18px 0 0 #ff9cc8, 11px 14px 0 -2px #64243c;
+      left: 34px; top: 36px; width: 52px; height: 62px;
+      border-radius: 45% 45% 48% 48% / 42% 42% 58% 58%;
+      background: linear-gradient(180deg, #ffd0bd, #d79a87);
+      box-shadow: inset 8px -4px 0 rgba(157,83,96,.18);
+      animation: breatheFace 4s ease-in-out infinite;
     }
-    .bio { color: var(--muted); font-size: 12px; line-height: 1.45; }
-    .bio strong { color: var(--ink); }
+    .anime-portrait .eye {
+      position: absolute;
+      top: 58px; width: 9px; height: 12px;
+      border-radius: 50%; background: #131021;
+      box-shadow: inset 0 4px 0 #5d4fff, 0 0 7px rgba(102,231,255,.45);
+      animation: blink 5s infinite;
+    }
+    .anime-portrait .eye.left { left: 47px; }
+    .anime-portrait .eye.right { left: 68px; }
+    .anime-portrait .mouth {
+      position: absolute;
+      left: 57px; top: 80px; width: 16px; height: 7px;
+      border-bottom: 2px solid #7c3f4d;
+      border-radius: 50%;
+      animation: mouthMove 6s ease-in-out infinite;
+    }
+    .anime-portrait .body {
+      position: absolute;
+      left: 25px; bottom: -22px; width: 78px; height: 72px;
+      border-radius: 34px 34px 12px 12px;
+      background: linear-gradient(120deg, #242c4c, #141928 52%, #2b1630);
+      box-shadow: inset 0 11px 0 rgba(102,231,255,.12);
+      animation: breatheBody 3.6s ease-in-out infinite;
+    }
+    .anime-portrait .breath {
+      position: absolute;
+      left: 80px; top: 74px; width: 30px; height: 14px;
+      border-radius: 50%; background: rgba(220,240,255,.22);
+      filter: blur(2px); animation: breath 3.2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95%, 97% { transform: scaleY(.08); } }
+    @keyframes hairFloat { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-2px) rotate(1deg); } }
+    @keyframes breatheFace { 0%,100% { transform: translateY(0); } 50% { transform: translateY(1px); } }
+    @keyframes breatheBody { 0%,100% { transform: translateY(0) scaleY(1); } 50% { transform: translateY(2px) scaleY(1.015); } }
+    @keyframes mouthMove { 0%, 80%, 100% { transform: scaleX(1); } 84%, 88% { transform: scaleX(.62); } }
+    @keyframes breath { 0% { opacity: 0; transform: translateX(0) scale(.5); } 35% { opacity: .65; } 100% { opacity: 0; transform: translateX(34px) translateY(-7px) scale(1.4); } }
+
+    .bio { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .bio strong { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
 
     .stats { display: grid; gap: 9px; }
-    .stat {
-      background: rgba(255,255,255,.045);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 9px;
-      position: relative;
-      overflow: hidden;
-    }
-    .stat::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.025), transparent); transform: translateX(-100%); animation: sheen 7s infinite; }
-    @keyframes sheen { 0%, 78% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-    .stat-row { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 12px; }
+    .stat { padding: 10px; border: 1px solid rgba(255,255,255,.09); background: rgba(255,255,255,.045); border-radius: 16px; overflow: hidden; }
+    .stat-row { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 12px; }
     .stat strong { color: var(--ink); }
+    .bar { height: 10px; background: rgba(0,0,0,.34); border-radius: 999px; margin-top: 7px; overflow: hidden; }
+    .fill { height: 100%; border-radius: inherit; width: 50%; box-shadow: 0 0 18px currentColor; transition: width .25s ease; }
     .money { color: var(--green); font-weight: 900; }
-    .bar { height: 12px; margin-top: 7px; background: #080611; border: 1px solid rgba(255,255,255,.12); box-shadow: inset 0 2px 0 rgba(0,0,0,.32); }
-    .fill { height: 100%; width: 50%; transition: width .25s ease; box-shadow: 0 0 12px currentColor; }
-    .warning { color: var(--amber); }
     .danger { color: var(--red); }
+    .warning { color: var(--gold); }
     .good { color: var(--green); }
     .cyan { color: var(--cyan); }
 
-    .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
-    .controls, .log, .inventory { margin-top: 14px; }
-    .controls p, .small { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
-    kbd { display: inline-block; min-width: 26px; text-align: center; background: #07050d; border: 1px solid rgba(255,255,255,.18); padding: 4px 7px; margin: 2px; color: var(--cyan); box-shadow: 0 3px 0 #000; }
-
     .chips { display: flex; flex-wrap: wrap; gap: 7px; }
-    .chip { border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.045); color: var(--muted); padding: 6px 8px; font-size: 12px; }
+    .chip { padding: 7px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.045); color: var(--muted); font-size: 12px; }
     .chip b { color: var(--ink); }
-
-    .log {
-      height: 220px;
-      overflow: auto;
-      padding: 10px;
-      background: #07050d;
-      border: 1px solid rgba(255,255,255,.09);
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
-    }
+    .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 13px; }
+    .controls, .inventory, .log { margin-top: 15px; }
+    .controls p, .small { color: var(--muted); margin: 0; line-height: 1.5; font-size: 12px; }
+    kbd { display: inline-flex; justify-content: center; align-items: center; min-width: 25px; height: 25px; margin: 2px; border-radius: 8px; background: rgba(0,0,0,.38); border: 1px solid rgba(255,255,255,.14); color: var(--cyan); font-weight: 800; }
+    .log { height: 220px; overflow: auto; padding: 10px; border-radius: 16px; background: rgba(0,0,0,.34); border: 1px solid rgba(255,255,255,.08); color: var(--muted); font-size: 12px; line-height: 1.45; }
     .log p { margin: 0 0 9px; }
 
-    .world-wrap { padding: 14px; min-height: 664px; }
-    .world-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .scene-title { color: var(--cyan); text-transform: uppercase; letter-spacing: 1px; font-weight: 900; }
+    .world-card { padding: 16px; min-height: 700px; }
+    .world-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+    .scene-title { font-weight: 950; letter-spacing: 1px; color: var(--cyan); text-transform: uppercase; }
     .weather { color: var(--muted); font-size: 12px; }
-
     .world {
       position: relative;
       width: 100%;
+      min-height: 610px;
       aspect-ratio: 16 / 10;
-      min-height: 550px;
+      border-radius: 28px;
       overflow: hidden;
-      background: #070711;
-      image-rendering: pixelated;
-      border: 5px solid var(--outline);
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,.04), 0 0 0 2px rgba(79,229,255,.08), 0 18px 38px var(--shadow);
+      background: #111020;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 0 80px rgba(0,0,0,.42), 0 20px 50px rgba(0,0,0,.42);
     }
-
-    .scene { position: absolute; inset: 0; display: none; background-size: cover; }
+    .scene { position: absolute; inset: 0; display: none; }
     .scene.active { display: block; }
-    .scene::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,.03), transparent 42%, rgba(0,0,0,.25)); }
-    .night .scene::after { background: linear-gradient(180deg, rgba(8,10,35,.28), rgba(0,0,0,.38)), radial-gradient(circle at 70% 18%, rgba(79,229,255,.12), transparent 34%); }
+    .scene::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 46%, rgba(0,0,0,.24)); z-index: 4; }
+    .night .scene::after { background: linear-gradient(180deg, rgba(13,18,55,.28), rgba(0,0,0,.42)), radial-gradient(circle at 76% 14%, rgba(102,231,255,.14), transparent 30%); }
 
     .home {
       background:
-        linear-gradient(90deg, transparent 0 15%, rgba(79,229,255,.08) 15% 17%, transparent 17% 100%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0 2px, transparent 2px 42px),
-        linear-gradient(180deg, #1b1326 0 64%, #100b17 64% 100%);
+        radial-gradient(circle at 18% 18%, rgba(180,215,255,.2), transparent 18%),
+        linear-gradient(180deg, #22162d 0 62%, #130e19 62% 100%);
     }
-    .home::before {
-      content: "";
-      position: absolute; left: 7%; top: 12%; width: 22%; height: 31%;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.16), transparent 16%),
-        linear-gradient(135deg, #6e86aa 0%, #25324a 62%, #151827 100%);
-      border: 5px solid var(--outline);
-      box-shadow: inset 0 0 0 7px rgba(255,255,255,.07), 0 0 28px rgba(79,229,255,.18);
+    .home .window {
+      position: absolute; left: 7%; top: 10%; width: 24%; height: 34%; border-radius: 18px;
+      background: linear-gradient(180deg, rgba(219,238,255,.78), rgba(42,56,91,.7));
+      border: 8px solid rgba(6,5,11,.88); box-shadow: inset 0 0 0 2px rgba(255,255,255,.16), 0 0 42px rgba(102,231,255,.14);
     }
-    .home::after {
-      content: "";
-      position: absolute; left: 3%; right: 3%; bottom: 0; height: 36%;
-      background:
-        repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 3px, transparent 3px 48px),
-        linear-gradient(180deg, #16101c, #0b0710);
-      border-top: 5px solid #07050d;
-    }
+    .home .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 38%; background: linear-gradient(180deg, #1a121f, #0d0911); border-top: 1px solid rgba(255,255,255,.09); }
+    .prop { position: absolute; z-index: 2; border: 1px solid rgba(255,255,255,.13); box-shadow: 0 18px 34px rgba(0,0,0,.34); }
+    .desk { left: 46%; top: 50%; width: 28%; height: 14%; border-radius: 20px 20px 10px 10px; background: linear-gradient(180deg, #6a3743, #301a25); }
+    .monitor { left: 53%; top: 34%; width: 15%; height: 14%; border-radius: 16px; background: radial-gradient(circle at 50% 45%, rgba(102,231,255,.56), rgba(12,22,36,.96) 52%); border: 5px solid rgba(5,5,10,.82); }
+    .fridge { left: 33%; top: 43%; width: 10%; height: 24%; border-radius: 18px; background: linear-gradient(180deg, #d9e5ef, #7a8ba4); }
+    .bed { left: 8%; top: 66%; width: 29%; height: 16%; border-radius: 26px; background: linear-gradient(135deg, #8e3b5b, #22152e 62%); }
+    .radiator { left: 76%; top: 70%; width: 15%; height: 8%; border-radius: 18px; background: repeating-linear-gradient(90deg, #dfe4ec 0 9px, #9099ad 9px 14px); }
+    .door { right: 5%; top: 32%; width: 11%; height: 38%; border-radius: 28px 28px 6px 6px; background: linear-gradient(90deg, #241522, #442235); }
 
-    .safehouse {
+    .street {
       background:
-        radial-gradient(circle at 70% 22%, rgba(255,61,143,.2), transparent 12%),
-        radial-gradient(circle at 20% 12%, rgba(79,229,255,.16), transparent 18%),
-        repeating-linear-gradient(90deg, transparent 0 44px, rgba(255,255,255,.025) 44px 48px),
-        linear-gradient(180deg, #111523 0 58%, #0b0911 58% 100%);
+        radial-gradient(circle at 48% 11%, rgba(255,255,255,.58), transparent 3%),
+        linear-gradient(180deg, #0d1029 0 43%, #242d4a 43% 48%, #dcecff 48% 54%, #8c9bb8 54% 100%);
     }
-    .safehouse::before {
-      content: "";
-      position: absolute; inset: 12% 7% auto 7%; height: 36%;
-      background: linear-gradient(90deg, #20162b, #13101b, #23162d);
-      border: 5px solid var(--outline);
-      box-shadow: inset 0 -22px 0 rgba(0,0,0,.25), 0 12px 0 rgba(0,0,0,.22);
-    }
+    .building-row { position: absolute; inset: 0 0 auto 0; height: 49%; background: linear-gradient(90deg, #201729 0 25%, #14101e 25% 56%, #2a1730 56% 84%, #11131f 84%); clip-path: polygon(0 0,100% 0,100% 92%,0 100%); }
+    .building-row::after { content: ""; position: absolute; inset: 20% 4%; background: repeating-linear-gradient(90deg, rgba(102,231,255,.22) 0 12px, transparent 12px 44px); opacity: .66; }
+    .snow-road { position: absolute; left: 0; right: 0; bottom: 0; height: 51%; background: linear-gradient(180deg, #dcecff, #8290ad); }
+    .shop-front { left: 8%; top: 39%; width: 22%; height: 25%; border-radius: 26px; background: linear-gradient(180deg, #51345d, #211729); }
+    .shop-front::before { content: "МАГАЗИН"; position: absolute; left: 10%; right: 10%; top: -32px; text-align: center; padding: 6px; border-radius: 12px; background: var(--rose); color: white; font-weight: 900; }
+    .cafe-front { left: 38%; top: 37%; width: 22%; height: 28%; border-radius: 26px; background: linear-gradient(180deg, #4a334f, #1d1626); }
+    .cafe-front::before { content: "ЧАЙ & СУП"; position: absolute; left: 12%; right: 12%; top: -32px; text-align: center; padding: 6px; border-radius: 12px; background: var(--gold); color: #221414; font-weight: 900; }
+    .landlord-front { right: 7%; top: 34%; width: 23%; height: 32%; border-radius: 28px; background: linear-gradient(180deg, #2d2238, #17101d); }
+    .landlord-front::before { content: "CASERO"; position: absolute; left: 18%; right: 18%; top: -30px; text-align: center; padding: 6px; border-radius: 12px; background: var(--cyan); color: #071016; font-weight: 900; }
+    .police-car { right: 32%; top: 69%; width: 20%; height: 9%; border-radius: 26px 32px 12px 12px; background: #111828; opacity: .22; }
+    .police-car.alert { opacity: .94; box-shadow: 0 0 28px rgba(255,98,118,.55); }
+    .police-car::before { content: ""; position: absolute; left: 42%; top: -10px; width: 18%; height: 8px; border-radius: 8px; background: linear-gradient(90deg, var(--red), var(--cyan)); }
 
-    .neighborhood {
-      background:
-        radial-gradient(circle at 48% 14%, rgba(255,255,255,.38), transparent 2.5%),
-        linear-gradient(180deg, #0d1126 0 44%, #26334f 44% 48%, #dbe9ff 48% 53%, #8798b8 53% 100%);
+    .shop-room, .cafe-room, .safehouse {
+      background: linear-gradient(180deg, #20172c 0 62%, #100b16 62% 100%);
     }
-    .neighborhood::before {
-      content: "";
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(90deg, transparent 0 6%, #21162d 6% 23%, transparent 23% 31%, #15101f 31% 53%, transparent 53% 61%, #2a1730 61% 84%, transparent 84%),
-        repeating-linear-gradient(90deg, rgba(79,229,255,.16) 0 8px, transparent 8px 34px),
-        linear-gradient(180deg, transparent 0 35%, rgba(0,0,0,.45) 35% 49%, transparent 49%);
-      clip-path: polygon(0 0, 100% 0, 100% 48%, 0 48%);
-    }
-    .neighborhood::after,
-    .snow-layer {
-      content: "";
-      position: absolute; inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.95) 0 2px, transparent 3px),
-        radial-gradient(circle, rgba(255,255,255,.55) 0 1px, transparent 2px);
-      background-size: 52px 52px, 37px 37px;
-      animation: snow 8s linear infinite;
-      z-index: 3;
-    }
-    .snow-layer { display: none; }
-    .scene.active.neighborhood ~ .snow-layer { display: block; }
-    @keyframes snow { from { background-position: 0 -80px, 0 -40px; } to { background-position: -60px 460px, 40px 380px; } }
+    .shop-room .shelves { position: absolute; left: 7%; top: 16%; width: 52%; height: 38%; border-radius: 24px; background: repeating-linear-gradient(180deg, #6a4651 0 20px, #2b1d29 20px 27px); }
+    .counter { position: absolute; left: 22%; top: 60%; width: 55%; height: 15%; border-radius: 22px; background: linear-gradient(180deg, #6b3b47, #2a1823); }
+    .cafe-room { background: radial-gradient(circle at 60% 20%, rgba(255,211,110,.18), transparent 22%), linear-gradient(180deg, #241729 0 62%, #130c15 62% 100%); }
+    .cafe-room .tables { position: absolute; left: 12%; top: 58%; width: 72%; height: 18%; border-radius: 999px; background: radial-gradient(circle at 20% 55%, #6d3b47 0 12%, transparent 13%), radial-gradient(circle at 55% 50%, #6d3b47 0 14%, transparent 15%), radial-gradient(circle at 82% 52%, #6d3b47 0 11%, transparent 12%); }
+    .safehouse { background: radial-gradient(circle at 74% 18%, rgba(255,79,154,.18), transparent 15%), radial-gradient(circle at 18% 16%, rgba(102,231,255,.16), transparent 17%), linear-gradient(180deg, #111827 0 61%, #0d0a12 61% 100%); }
+    .rig { position: absolute; left: 35%; top: 21%; width: 30%; height: 29%; border-radius: 28px; background: radial-gradient(circle at 50% 45%, rgba(102,231,255,.35), rgba(4,7,13,.95) 58%); border: 8px solid rgba(0,0,0,.42); }
 
-    .prop { position: absolute; border: 4px solid var(--outline); box-shadow: 8px 8px 0 rgba(0,0,0,.3); z-index: 2; }
-    .desk { left: 47%; top: 49%; width: 26%; height: 15%; background: linear-gradient(180deg, #60313d, #321a25); }
-    .monitor { left: 53%; top: 35%; width: 14%; height: 13%; background: #07131d; border-color: #05050a; box-shadow: inset 0 0 0 6px #58d7f4, inset 0 0 22px rgba(79,229,255,.5), 8px 8px 0 rgba(0,0,0,.3); }
-    .monitor::before { content: "▣"; position: absolute; left: 39%; top: 25%; color: var(--green); text-shadow: 0 0 8px var(--green); }
-    .fridge { left: 33%; top: 45%; width: 9%; height: 22%; background: linear-gradient(180deg, #c5d7ea, #7c91ad); }
-    .bed { left: 9%; top: 67%; width: 27%; height: 14%; background: #251833; box-shadow: inset 0 12px 0 #8b3958, 8px 8px 0 rgba(0,0,0,.3); }
-    .radiator { left: 75%; top: 70%; width: 14%; height: 8%; background: repeating-linear-gradient(90deg, #d8dde9 0 8px, #8792aa 8px 12px); }
-    .door { right: 5%; top: 34%; width: 10%; height: 35%; background: linear-gradient(90deg, #231523, #3a1f2b); }
-    .terminal-rig { left: 41%; top: 21%; width: 18%; height: 20%; background: #060912; box-shadow: inset 0 0 0 8px rgba(79,229,255,.28), 8px 8px 0 rgba(0,0,0,.3); }
-    .handler { right: 16%; top: 52%; width: 10%; height: 24%; background: #1d1322; box-shadow: inset 0 9px 0 #d09b84, inset 0 28px 0 #30253e, 8px 8px 0 rgba(0,0,0,.3); }
-    .shop { left: 8%; top: 42%; width: 20%; height: 23%; background: linear-gradient(180deg, #3d2a47, #201526); }
-    .shop::before { content: "МАГАЗИН"; position: absolute; left: -4px; top: -30px; width: calc(100% + 8px); padding: 5px 0; text-align: center; background: #d83f80; color: white; font-size: 12px; border: 4px solid var(--outline); text-shadow: 2px 2px 0 #5d1234; }
-    .cafe { left: 39%; top: 39%; width: 19%; height: 26%; background: linear-gradient(180deg, #3a2842, #1c1324); }
-    .cafe::before { content: "ЧАЙ"; position: absolute; left: 18%; top: -25px; background: var(--amber); color: #160e1f; padding: 4px 12px; border: 3px solid var(--outline); }
-    .rent { right: 8%; top: 36%; width: 20%; height: 30%; background: linear-gradient(180deg, #251a31, #17101c); }
-    .rent::before { content: "CASERO"; position: absolute; left: 14%; top: -25px; background: var(--cyan); color: #071018; padding: 4px 10px; border: 3px solid var(--outline); }
-    .police-car { right: 31%; top: 67%; width: 20%; height: 9%; background: #111723; border-color: #05050a; opacity: .25; }
-    .police-car.alert { opacity: .92; box-shadow: 0 0 22px rgba(255,85,104,.5), 8px 8px 0 rgba(0,0,0,.3); }
-    .police-car::before { content: ""; position: absolute; left: 42%; top: -10px; width: 16%; height: 8px; background: linear-gradient(90deg, var(--red), var(--cyan)); border: 2px solid var(--outline); }
+    .snowflakes { position: absolute; inset: 0; pointer-events: none; z-index: 6; background-image: radial-gradient(circle, rgba(255,255,255,.9) 0 2px, transparent 3px), radial-gradient(circle, rgba(255,255,255,.55) 0 1px, transparent 2px); background-size: 58px 58px, 37px 37px; animation: snow 9s linear infinite; display: none; }
+    .scene.active.street ~ .snowflakes { display: block; }
+    @keyframes snow { from { background-position: 0 -80px, 0 -40px; } to { background-position: -70px 520px, 42px 430px; } }
 
-    .avatar {
+    .npc, .player {
       position: absolute;
-      width: 36px;
-      height: 58px;
-      left: 42%; top: 55%;
-      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 126px;
       z-index: 8;
-      transition: left .08s linear, top .08s linear, filter .15s;
-      filter: drop-shadow(8px 9px 0 rgba(0,0,0,.34));
+      transform: translate(-50%, -50%);
+      transition: left .1s linear, top .1s linear, filter .15s;
+      filter: drop-shadow(0 20px 16px rgba(0,0,0,.38));
     }
-    .avatar::before { content: ""; position: absolute; left: 8px; top: 0; width: 20px; height: 20px; background: #dda38b; border: 3px solid var(--outline); box-shadow: inset 6px 0 0 #2b1f35, 0 -7px 0 -1px #15101c; }
-    .avatar::after { content: ""; position: absolute; left: 4px; top: 20px; width: 28px; height: 31px; background: linear-gradient(90deg, #2c314f 0 50%, #14192d 50%); border: 3px solid var(--outline); box-shadow: -7px 25px 0 -5px #101524, 7px 25px 0 -5px #101524, inset 0 8px 0 rgba(79,229,255,.16); }
-    .avatar.walking { filter: drop-shadow(8px 9px 0 rgba(0,0,0,.34)) brightness(1.15); }
+    .player .hair, .npc .hair { position: absolute; left: 13px; top: 2px; width: 40px; height: 43px; border-radius: 45% 55% 44% 56%; background: linear-gradient(135deg, #15101d, #352540); z-index: 3; animation: hairFloat 3s ease-in-out infinite; }
+    .player .face, .npc .face { position: absolute; left: 15px; top: 23px; width: 35px; height: 42px; border-radius: 44% 44% 50% 50% / 40% 40% 60% 60%; background: linear-gradient(180deg, #ffd0bd, #d49480); z-index: 4; animation: breatheFace 3.6s ease-in-out infinite; }
+    .player .eye, .npc .eye { position: absolute; top: 38px; width: 6px; height: 8px; border-radius: 50%; background: #141021; z-index: 5; animation: blink 4.8s infinite; }
+    .player .eye.l, .npc .eye.l { left: 24px; }
+    .player .eye.r, .npc .eye.r { left: 38px; }
+    .player .mouth, .npc .mouth { position: absolute; left: 30px; top: 53px; width: 11px; height: 5px; border-bottom: 2px solid #7d3f4e; border-radius: 50%; z-index: 5; animation: mouthMove 7s infinite; }
+    .player .coat, .npc .coat { position: absolute; left: 8px; top: 62px; width: 50px; height: 58px; border-radius: 24px 24px 12px 12px; background: linear-gradient(120deg, #273454, #131a2e 52%, #32162e); z-index: 3; animation: breatheBody 3.2s infinite; }
+    .player .leg, .npc .leg { position: absolute; top: 112px; width: 10px; height: 20px; border-radius: 8px; background: #101520; z-index: 2; transform-origin: top; }
+    .player .leg.l, .npc .leg.l { left: 19px; } .player .leg.r, .npc .leg.r { left: 36px; }
+    .player.walking .leg.l { animation: stepL .42s infinite; } .player.walking .leg.r { animation: stepR .42s infinite; }
+    .player.walking .coat { animation: walkBody .42s infinite; }
+    @keyframes stepL { 0%,100% { transform: rotate(11deg); } 50% { transform: rotate(-15deg); } }
+    @keyframes stepR { 0%,100% { transform: rotate(-15deg); } 50% { transform: rotate(11deg); } }
+    @keyframes walkBody { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+    .npc { opacity: .95; animation: npcIdle 4s ease-in-out infinite; }
+    .npc .coat { background: linear-gradient(120deg, var(--npc-a, #4f385b), var(--npc-b, #201826)); }
+    .npc.shopkeep { --npc-a: #6d4759; --npc-b: #2d1a2c; }
+    .npc.student { --npc-a: #315371; --npc-b: #111827; }
+    .npc.worker { --npc-a: #5e5130; --npc-b: #272315; }
+    .npc.handler { --npc-a: #3a2546; --npc-b: #160e1d; }
+    @keyframes npcIdle { 0%,100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-3px); } }
 
-    .hotspot {
-      position: absolute;
-      z-index: 6;
-      border: 2px dashed rgba(255,255,255,.2);
-      background: rgba(255,61,143,.07);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.18);
-    }
-    .hotspot.near { border-color: var(--amber); background: rgba(255,209,102,.14); box-shadow: 0 0 20px rgba(255,209,102,.28), inset 0 0 0 1px rgba(255,255,255,.08); }
-    .hotspot span { position: absolute; left: 50%; top: -26px; transform: translateX(-50%); white-space: nowrap; background: #07050d; color: var(--amber); border: 1px solid rgba(255,255,255,.18); padding: 3px 7px; font-size: 12px; text-shadow: 0 0 8px rgba(255,209,102,.5); }
+    .hotspot { position: absolute; z-index: 9; border-radius: 20px; border: 1px dashed rgba(255,255,255,.22); background: rgba(255,79,154,.06); box-shadow: inset 0 0 16px rgba(255,255,255,.035); }
+    .hotspot.near { background: rgba(255,211,110,.15); border-color: rgba(255,211,110,.75); box-shadow: 0 0 26px rgba(255,211,110,.25); }
+    .hotspot span { position: absolute; left: 50%; top: -30px; transform: translateX(-50%); white-space: nowrap; padding: 5px 9px; border-radius: 999px; background: rgba(5,4,10,.82); border: 1px solid rgba(255,255,255,.14); color: var(--gold); font-size: 12px; font-weight: 800; }
 
-    .side-card { padding: 14px; }
-    .quest { border-left: 3px solid var(--magenta); padding: 9px 10px; background: rgba(255,61,143,.06); color: var(--muted); font-size: 12px; line-height: 1.45; margin-bottom: 12px; }
+    .side { padding: 16px; }
+    .quest { padding: 11px; border-radius: 16px; border: 1px solid rgba(255,79,154,.22); background: rgba(255,79,154,.07); color: var(--muted); font-size: 12px; line-height: 1.5; margin-bottom: 13px; }
     .quest b { color: var(--ink); }
-    .phone {
-      height: 260px;
-      overflow: auto;
-      padding: 10px;
-      background: #06050b;
-      border: 1px solid rgba(255,255,255,.1);
-      font-size: 12px;
-      line-height: 1.42;
-    }
-    .msg { margin: 0 0 10px; padding: 8px; background: rgba(255,255,255,.045); border-left: 2px solid var(--cyan); color: var(--muted); }
-    .msg.gang { border-color: var(--magenta); }
-    .msg.police { border-color: var(--red); }
-    .msg.system { border-color: var(--amber); }
+    .phone { height: 260px; overflow: auto; padding: 11px; border-radius: 16px; background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.08); font-size: 12px; line-height: 1.45; }
+    .msg { margin: 0 0 10px; padding: 9px; border-radius: 13px; background: rgba(255,255,255,.045); border-left: 3px solid var(--cyan); color: var(--muted); }
+    .msg.gang { border-color: var(--rose); } .msg.police { border-color: var(--red); } .msg.system { border-color: var(--gold); } .msg.npc { border-color: var(--green); }
+    .relations { display: grid; gap: 8px; margin-top: 12px; }
+    .rel { display: flex; justify-content: space-between; gap: 8px; padding: 9px; border-radius: 14px; background: rgba(255,255,255,.045); color: var(--muted); font-size: 12px; }
+    .rel b { color: var(--ink); }
 
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      place-items: center;
-      padding: 20px;
-      background: rgba(5,4,9,.82);
-      z-index: 100;
-    }
+    .modal { position: fixed; inset: 0; display: none; place-items: center; padding: 20px; background: rgba(5,4,9,.78); z-index: 100; }
     .modal.open { display: grid; }
-    .modal-card {
-      width: min(980px, 96vw);
-      max-height: 92vh;
-      overflow: auto;
-      background: linear-gradient(180deg, #15101f, #08060d);
-      border: 3px solid rgba(255,255,255,.13);
-      box-shadow: 0 30px 90px rgba(0,0,0,.78), 0 0 55px rgba(255,61,143,.12);
-      padding: 16px;
-    }
-    .modal-head { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
-    .ethics { color: var(--amber); font-size: 12px; line-height: 1.45; margin: 6px 0 0; }
-    .terminal {
-      margin: 12px 0;
-      padding: 14px;
-      min-height: 220px;
-      background:
-        repeating-linear-gradient(to bottom, rgba(130,245,159,.035) 0 1px, transparent 1px 6px),
-        #04070b;
-      border: 2px solid #1f2a38;
-      color: #9dffb5;
-      font-size: 13px;
-      line-height: 1.5;
-      white-space: pre-wrap;
-      text-shadow: 0 0 10px rgba(130,245,159,.28);
-    }
-    .task-grid, .node-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 9px; }
-    .choice { text-align: left; text-transform: none; letter-spacing: 0; min-height: 68px; }
-    .choice small { display: block; margin-top: 4px; color: var(--muted); font-weight: 500; }
-    .node-grid { margin: 10px 0; }
-    .node {
-      min-height: 74px;
-      background: linear-gradient(180deg, #172034, #0b101c);
-      color: var(--cyan);
-    }
-    .node.bad { color: var(--red); }
-    .node.good { color: var(--green); }
-    .mini-status { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
-    .mini-status div { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 8px; color: var(--muted); font-size: 12px; }
+    .modal-card { width: min(1040px, 96vw); max-height: 92vh; overflow: auto; padding: 18px; border-radius: 28px; background: linear-gradient(180deg, rgba(25,19,36,.98), rgba(8,6,12,.98)); border: 1px solid rgba(255,255,255,.14); box-shadow: 0 34px 90px rgba(0,0,0,.74), 0 0 80px rgba(255,79,154,.12); }
+    .modal-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .ethics { color: var(--gold); font-size: 12px; line-height: 1.45; margin: 6px 0 0; }
+    .terminal { margin: 12px 0; min-height: 180px; padding: 14px; border-radius: 18px; background: linear-gradient(180deg, rgba(8,15,22,.98), rgba(4,7,10,.98)); border: 1px solid rgba(102,231,255,.18); color: #a8ffbf; text-shadow: 0 0 12px rgba(140,243,169,.24); white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+    .card-btn { min-height: 86px; text-align: left; }
+    .card-btn small { display: block; color: var(--muted); margin-top: 7px; line-height: 1.35; font-weight: 500; }
+    .mini-layout { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(340px, 1.2fr); gap: 13px; }
+    .mini-bars { display: grid; gap: 10px; }
+    .mini-board { min-height: 340px; position: relative; border-radius: 24px; background: radial-gradient(circle at 50% 45%, rgba(102,231,255,.12), transparent 34%), rgba(0,0,0,.24); border: 1px solid rgba(255,255,255,.1); overflow: hidden; }
+    .pulse-ring { position: absolute; left: 50%; top: 50%; width: 82px; height: 82px; border-radius: 50%; transform: translate(-50%, -50%); border: 2px solid rgba(102,231,255,.45); box-shadow: 0 0 25px rgba(102,231,255,.23); animation: ringPulse 1.4s infinite; }
+    .pulse-ring.bad { border-color: rgba(255,98,118,.55); box-shadow: 0 0 25px rgba(255,98,118,.28); }
+    @keyframes ringPulse { 0% { transform: translate(-50%, -50%) scale(.72); opacity: .25; } 45% { opacity: .85; } 100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; } }
+    .dialogue { padding: 12px; border-radius: 18px; background: rgba(255,255,255,.045); color: var(--muted); font-size: 13px; line-height: 1.5; }
     .ending { font-size: 18px; line-height: 1.65; }
 
-    @media (max-width: 1160px) {
-      .app { grid-template-columns: minmax(280px, 360px) 1fr; }
-      .side-card { grid-column: 1 / -1; }
-    }
-    @media (max-width: 860px) {
-      .app { grid-template-columns: 1fr; padding: 10px; }
-      header { grid-template-columns: 1fr; }
-      .world { min-height: 500px; }
-      .actions { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1220px) { .app { grid-template-columns: minmax(300px, 380px) 1fr; } .side { grid-column: 1 / -1; } }
+    @media (max-width: 900px) { .app { grid-template-columns: 1fr; padding: 10px; } header { grid-template-columns: 1fr; } .world { min-height: 560px; } .mini-layout { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <div class="app">
-    <header class="chrome">
+    <header class="glass">
       <div>
         <h1><span>Ransomlife</span>: Invierno de Carbón</h1>
-        <div class="subtitle">Simulación narrativa de supervivencia: Dima, informático ruso pobre, intenta comer, pagar alquiler y sobrevivir a una banda criminal que lo explota. La estética apunta a anime pixel oscuro con CRT, nieve sucia y neón selectivo.</div>
-        <div class="build-tag">v2 — más escenas, minijuego abstracto, inventario, misiones y presión policial</div>
+        <div class="subtitle">Simulación narrativa oscura: Dima intenta comer, pagar alquiler y no perderse dentro de una banda criminal. Esta versión abandona el pixel duro por un look anime estilizado, personajes animados, interiores visitables y minijuegos de tensión moral.</div>
+        <div class="version">v3 — anime, NPCs, tiendas interiores, relaciones y minijuegos rediseñados</div>
       </div>
       <button id="newGame">Nueva partida</button>
     </header>
 
-    <aside class="chrome panel">
+    <aside class="glass panel">
       <div class="portrait-card">
-        <div class="portrait" aria-hidden="true"></div>
-        <div class="bio"><strong>Dima Orlov, 22</strong><br>Programador autodidacta. Vive en un bloque congelado. Su contacto en la banda promete dinero rápido; cada rublo deja una sombra.</div>
+        <div class="anime-portrait" aria-hidden="true"><div class="body"></div><div class="hair"></div><div class="face"></div><div class="eye left"></div><div class="eye right"></div><div class="mouth"></div><div class="breath"></div></div>
+        <div class="bio"><strong>Dima Orlov, 22</strong>Informático autodidacta, pobre y cansado. La cara cambia con el frío, la culpa y la falta de sueño; su cuerpo respira aunque la ciudad parezca muerta.</div>
       </div>
       <h2>Estado</h2>
       <div class="stats" id="stats"></div>
-      <div class="inventory">
-        <h3>Inventario</h3>
-        <div class="chips" id="inventory"></div>
-      </div>
+      <div class="inventory"><h3>Inventario</h3><div class="chips" id="inventory"></div></div>
       <div class="actions">
         <button id="interactBtn">Interactuar (E)</button>
-        <button class="ghost" id="waitBtn">Esperar 1h</button>
-        <button class="safe-btn" id="useFoodBtn">Comer ración</button>
-        <button class="ghost" id="journalBtn">Diario</button>
+        <button class="btn-ghost" id="waitBtn">Esperar 1h</button>
+        <button class="btn-safe" id="useFoodBtn">Comer</button>
+        <button class="btn-ghost" id="journalBtn">Diario (J)</button>
       </div>
-      <div class="controls">
-        <h3>Controles</h3>
-        <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> o flechas para moverte. <kbd>E</kbd> interactúa. <kbd>J</kbd> abre el diario. En el ordenador eliges encargos abstractos; en la calle compras, pagas alquiler y buscas calor.</p>
-      </div>
+      <div class="controls"><h3>Controles</h3><p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> o flechas para moverte. <kbd>E</kbd> interactúa. Entra en tiendas, habla con gente, usa el ordenador y decide si obedecer, resistir o buscar una salida legal.</p></div>
       <div class="log" id="log" aria-live="polite"></div>
     </aside>
 
-    <main class="chrome world-wrap">
-      <div class="world-top">
-        <div class="scene-title" id="sceneTitle">Piso de Dima</div>
-        <div class="weather" id="weatherText">Nieve seca · -18°C</div>
-      </div>
+    <main class="glass world-card">
+      <div class="world-top"><div class="scene-title" id="sceneTitle">Piso de Dima</div><div class="weather" id="weatherText">Nieve seca · -18°C</div></div>
       <div class="world" id="world" tabindex="0" aria-label="Mundo del juego">
         <section class="scene home active" id="homeScene">
+          <div class="window"></div><div class="floor"></div>
           <div class="prop desk"></div><div class="prop monitor"></div><div class="prop fridge"></div><div class="prop bed"></div><div class="prop radiator"></div><div class="prop door"></div>
-          <div class="hotspot" data-id="computer" style="left:50%;top:31%;width:21%;height:26%"><span>Ordenador</span></div>
-          <div class="hotspot" data-id="fridge" style="left:30%;top:42%;width:15%;height:29%"><span>Nevera</span></div>
-          <div class="hotspot" data-id="bed" style="left:7%;top:63%;width:31%;height:22%"><span>Cama</span></div>
-          <div class="hotspot" data-id="radiator" style="left:72%;top:67%;width:20%;height:15%"><span>Radiador</span></div>
-          <div class="hotspot" data-id="door" style="right:3%;top:30%;width:15%;height:43%"><span>Calle</span></div>
+          <div class="hotspot" data-id="computer" style="left:50%;top:31%;width:22%;height:27%"><span>Ordenador</span></div>
+          <div class="hotspot" data-id="fridge" style="left:30%;top:42%;width:15%;height:30%"><span>Nevera</span></div>
+          <div class="hotspot" data-id="bed" style="left:7%;top:62%;width:32%;height:24%"><span>Cama</span></div>
+          <div class="hotspot" data-id="radiator" style="left:73%;top:67%;width:20%;height:16%"><span>Radiador</span></div>
+          <div class="hotspot" data-id="street" style="right:3%;top:28%;width:16%;height:45%"><span>Salir</span></div>
         </section>
-        <section class="scene neighborhood" id="neighborhoodScene">
-          <div class="prop shop"></div><div class="prop cafe"></div><div class="prop rent"></div><div class="prop police-car" id="policeCar"></div>
-          <div class="hotspot" data-id="shop" style="left:6%;top:35%;width:25%;height:36%"><span>Colmado</span></div>
-          <div class="hotspot" data-id="cafe" style="left:37%;top:34%;width:24%;height:37%"><span>Té / Rumores</span></div>
-          <div class="hotspot" data-id="landlord" style="right:5%;top:30%;width:26%;height:43%"><span>Casero</span></div>
-          <div class="hotspot" data-id="safehouse" style="left:65%;bottom:4%;width:18%;height:16%"><span>Piso franco</span></div>
-          <div class="hotspot" data-id="home" style="left:39%;bottom:3%;width:18%;height:17%"><span>Casa</span></div>
+
+        <section class="scene street" id="streetScene">
+          <div class="building-row"></div><div class="snow-road"></div>
+          <div class="prop shop-front"></div><div class="prop cafe-front"></div><div class="prop landlord-front"></div><div class="prop police-car" id="policeCar"></div>
+          <div class="npc student" data-npc="student" style="left:34%;top:74%"><div class="hair"></div><div class="face"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div><div class="coat"></div><div class="leg l"></div><div class="leg r"></div></div>
+          <div class="npc worker" data-npc="worker" style="left:61%;top:79%"><div class="hair"></div><div class="face"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div><div class="coat"></div><div class="leg l"></div><div class="leg r"></div></div>
+          <div class="hotspot" data-id="enterShop" style="left:6%;top:34%;width:26%;height:38%"><span>Entrar colmado</span></div>
+          <div class="hotspot" data-id="enterCafe" style="left:36%;top:32%;width:26%;height:41%"><span>Entrar café</span></div>
+          <div class="hotspot" data-id="landlord" style="right:5%;top:29%;width:27%;height:44%"><span>Casero</span></div>
+          <div class="hotspot" data-id="safehouse" style="left:66%;bottom:4%;width:19%;height:18%"><span>Piso franco</span></div>
+          <div class="hotspot" data-id="talkStudent" style="left:28%;top:62%;width:14%;height:25%"><span>Hablar</span></div>
+          <div class="hotspot" data-id="talkWorker" style="left:55%;top:66%;width:14%;height:24%"><span>Hablar</span></div>
+          <div class="hotspot" data-id="home" style="left:41%;bottom:3%;width:18%;height:17%"><span>Casa</span></div>
         </section>
+
+        <section class="scene shop-room" id="shopScene">
+          <div class="shelves"></div><div class="counter"></div>
+          <div class="npc shopkeep" style="left:64%;top:55%"><div class="hair"></div><div class="face"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div><div class="coat"></div><div class="leg l"></div><div class="leg r"></div></div>
+          <div class="hotspot" data-id="buyShop" style="left:18%;top:50%;width:62%;height:28%"><span>Comprar / hablar</span></div>
+          <div class="hotspot" data-id="streetFromShop" style="left:40%;bottom:4%;width:22%;height:17%"><span>Salir</span></div>
+        </section>
+
+        <section class="scene cafe-room" id="cafeScene">
+          <div class="tables"></div>
+          <div class="npc student" style="left:28%;top:58%"><div class="hair"></div><div class="face"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div><div class="coat"></div><div class="leg l"></div><div class="leg r"></div></div>
+          <div class="npc worker" style="left:68%;top:57%"><div class="hair"></div><div class="face"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div><div class="coat"></div><div class="leg l"></div><div class="leg r"></div></div>
+          <div class="hotspot" data-id="buyCafe" style="left:13%;top:48%;width:75%;height:32%"><span>Menú / rumores</span></div>
+          <div class="hotspot" data-id="streetFromCafe" style="left:40%;bottom:4%;width:22%;height:17%"><span>Salir</span></div>
+        </section>
+
         <section class="scene safehouse" id="safehouseScene">
-          <div class="prop terminal-rig"></div><div class="prop handler"></div>
-          <div class="hotspot" data-id="handler" style="right:10%;top:45%;width:22%;height:35%"><span>Handler</span></div>
-          <div class="hotspot" data-id="blackmarket" style="left:36%;top:16%;width:28%;height:32%"><span>Mercado gris</span></div>
-          <div class="hotspot" data-id="street" style="left:40%;bottom:4%;width:20%;height:18%"><span>Salir</span></div>
+          <div class="rig"></div>
+          <div class="npc handler" style="left:76%;top:62%"><div class="hair"></div><div class="face"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div><div class="coat"></div><div class="leg l"></div><div class="leg r"></div></div>
+          <div class="hotspot" data-id="handler" style="right:10%;top:47%;width:23%;height:33%"><span>Handler</span></div>
+          <div class="hotspot" data-id="blackmarket" style="left:31%;top:16%;width:38%;height:38%"><span>Mercado gris</span></div>
+          <div class="hotspot" data-id="streetFromSafe" style="left:40%;bottom:4%;width:22%;height:17%"><span>Salir</span></div>
         </section>
-        <div class="snow-layer" aria-hidden="true"></div>
-        <div class="avatar" id="avatar" aria-hidden="true"></div>
+        <div class="snowflakes" aria-hidden="true"></div>
+        <div class="player" id="player" aria-hidden="true"><div class="hair"></div><div class="face"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div><div class="coat"></div><div class="leg l"></div><div class="leg r"></div></div>
       </div>
     </main>
 
-    <aside class="chrome side-card">
+    <aside class="glass side">
       <h2>Presión narrativa</h2>
       <div class="quest" id="questBox"></div>
       <h3>Teléfono roto</h3>
       <div class="phone" id="phone"></div>
+      <h3 style="margin-top:14px">Relaciones</h3>
+      <div class="relations" id="relations"></div>
     </aside>
   </div>
 
   <div class="modal" id="computerModal" role="dialog" aria-modal="true" aria-labelledby="computerTitle">
     <div class="modal-card">
-      <div class="modal-head">
-        <div>
-          <h2 id="computerTitle">Terminal clandestina</h2>
-          <p class="ethics">Aviso: no hay instrucciones reales de intrusión, malware, extorsión ni evasión. Los encargos son ficción de gestión de riesgo y el minijuego usa nodos abstractos.</p>
-        </div>
-        <button class="ghost" id="closeComputer">Cerrar</button>
-      </div>
+      <div class="modal-head"><div><h2 id="computerTitle">Ordenador de Dima</h2><p class="ethics">Todo el trabajo criminal está representado como ficción abstracta de gestión emocional, clasificación narrativa y negociación. No hay instrucciones reales de intrusión, malware, extorsión ni evasión.</p></div><button class="btn-ghost" id="closeComputer">Cerrar</button></div>
       <div class="terminal" id="terminal"></div>
-      <div class="task-grid" id="taskGrid"></div>
-      <div class="actions">
-        <button class="ghost" id="burnEvidence">Ordenar escritorio (-3 sospecha, -1h)</button>
-        <button class="safe-btn" id="legalBoard">Tablón freelance legal</button>
-      </div>
+      <div class="grid" id="taskGrid"></div>
+      <div class="actions"><button class="btn-safe" id="legalBoard">Tablón legal</button><button class="btn-ghost" id="cleanDesk">Ordenar escritorio</button></div>
     </div>
   </div>
 
-  <div class="modal" id="miniGameModal" role="dialog" aria-modal="true" aria-labelledby="miniTitle">
+  <div class="modal" id="miniModal" role="dialog" aria-modal="true" aria-labelledby="miniTitle">
     <div class="modal-card">
-      <h2 id="miniTitle">Minijuego: presión de la terminal</h2>
-      <p class="small">Elige nodos de baja fricción para completar una tarea ficticia. No representa técnicas reales: solo tensión, tiempo y toma de decisiones.</p>
-      <div class="mini-status" id="miniStatus"></div>
-      <div class="terminal" id="miniTerminal"></div>
-      <div class="node-grid" id="nodeGrid"></div>
-      <div class="actions">
-        <button class="danger-btn" id="abortTask">Abortar tarea</button>
+      <div class="modal-head"><div><h2 id="miniTitle">Minijuego de tensión</h2><p class="small">No es hacking real. Es un duelo narrativo: regula presión, claridad y humanidad para completar el encargo sin romper a Dima.</p></div><button class="btn-danger" id="abortMini">Abortar</button></div>
+      <div class="mini-layout">
+        <div><div class="mini-bars" id="miniBars"></div><div class="terminal" id="miniLog"></div></div>
+        <div><div class="mini-board" id="miniBoard"><div class="pulse-ring" id="pulseRing"></div></div><div class="grid" id="choiceGrid" style="margin-top:12px"></div></div>
       </div>
     </div>
   </div>
 
   <div class="modal" id="shopModal" role="dialog" aria-modal="true" aria-labelledby="shopTitle">
-    <div class="modal-card">
-      <div class="modal-head"><h2 id="shopTitle">Compra / Trato</h2><button class="ghost" id="closeShop">Cerrar</button></div>
-      <div class="task-grid" id="shopGrid"></div>
-    </div>
+    <div class="modal-card"><div class="modal-head"><h2 id="shopTitle">Interacción</h2><button class="btn-ghost" id="closeShop">Cerrar</button></div><div class="grid" id="shopGrid"></div></div>
+  </div>
+
+  <div class="modal" id="dialogModal" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="modal-card"><div class="modal-head"><h2 id="dialogTitle">Conversación</h2><button class="btn-ghost" id="closeDialog">Cerrar</button></div><div class="dialogue" id="dialogText"></div><div class="grid" id="dialogChoices" style="margin-top:12px"></div></div>
   </div>
 
   <div class="modal" id="journalModal" role="dialog" aria-modal="true" aria-labelledby="journalTitle">
-    <div class="modal-card">
-      <div class="modal-head"><h2 id="journalTitle">Diario de Dima</h2><button class="ghost" id="closeJournal">Cerrar</button></div>
-      <div class="terminal" id="journalText"></div>
-    </div>
+    <div class="modal-card"><div class="modal-head"><h2 id="journalTitle">Diario de Dima</h2><button class="btn-ghost" id="closeJournal">Cerrar</button></div><div class="terminal" id="journalText"></div></div>
   </div>
 
-  <div class="modal" id="endModal" role="dialog" aria-modal="true">
-    <div class="modal-card ending" id="endingText"></div>
-  </div>
+  <div class="modal" id="endModal" role="dialog" aria-modal="true"><div class="modal-card ending" id="endingText"></div></div>
 
   <script>
     const initialState = {
-      day: 1, hour: 19, money: 95, hunger: 72, heat: 44, morale: 50, fatigue: 18,
-      suspicion: 10, rentDue: 350, rentTimer: 5, gangRep: 0, skill: 1, scene: 'home',
-      x: 45, y: 56, over: false, ration: 1, meds: 0, tea: 0, debt: 0, story: 0,
-      completedJobs: 0, legalJobs: 0, lastPolice: false
+      day: 1, hour: 19, money: 110, hunger: 72, heat: 46, morale: 52, fatigue: 20,
+      suspicion: 9, rentDue: 350, rentTimer: 5, gangRep: 0, skill: 1, scene: 'home',
+      x: 45, y: 58, over: false, ration: 1, tea: 0, meds: 0, debt: 0, story: 0,
+      legalJobs: 0, dirtyJobs: 0, empathy: 35, streetTrust: 8, lastPolice: false
     };
-
     const state = { ...initialState };
     const keys = new Set();
-    const avatar = document.getElementById('avatar');
-    const statsEl = document.getElementById('stats');
-    const inventoryEl = document.getElementById('inventory');
-    const logEl = document.getElementById('log');
-    const phoneEl = document.getElementById('phone');
-    const world = document.getElementById('world');
-    const sceneTitle = document.getElementById('sceneTitle');
-    const weatherText = document.getElementById('weatherText');
-    const questBox = document.getElementById('questBox');
-    const computerModal = document.getElementById('computerModal');
-    const terminal = document.getElementById('terminal');
-    const taskGrid = document.getElementById('taskGrid');
-    const miniGameModal = document.getElementById('miniGameModal');
-    const miniStatus = document.getElementById('miniStatus');
-    const miniTerminal = document.getElementById('miniTerminal');
-    const nodeGrid = document.getElementById('nodeGrid');
-    const shopModal = document.getElementById('shopModal');
-    const shopGrid = document.getElementById('shopGrid');
-    const journalModal = document.getElementById('journalModal');
-    const journalText = document.getElementById('journalText');
-    const endModal = document.getElementById('endModal');
+    const $ = id => document.getElementById(id);
+    const player = $('player');
+    const world = $('world');
+    const statsEl = $('stats');
+    const inventoryEl = $('inventory');
+    const logEl = $('log');
+    const phoneEl = $('phone');
+    const relationsEl = $('relations');
+    const questBox = $('questBox');
+    const sceneTitle = $('sceneTitle');
+    const weatherText = $('weatherText');
+    const computerModal = $('computerModal');
+    const taskGrid = $('taskGrid');
+    const terminal = $('terminal');
+    const miniModal = $('miniModal');
+    const miniBars = $('miniBars');
+    const miniLog = $('miniLog');
+    const choiceGrid = $('choiceGrid');
+    const pulseRing = $('pulseRing');
+    const shopModal = $('shopModal');
+    const shopGrid = $('shopGrid');
+    const shopTitle = $('shopTitle');
+    const dialogModal = $('dialogModal');
+    const dialogTitle = $('dialogTitle');
+    const dialogText = $('dialogText');
+    const dialogChoices = $('dialogChoices');
+    const journalModal = $('journalModal');
+    const journalText = $('journalText');
 
-    const sceneNames = { home: 'Piso de Dima', neighborhood: 'Vecindario nevado', safehouse: 'Piso franco de la gang' };
-    const weathers = ['Nieve seca · -18°C', 'Viento negro · -22°C', 'Hielo en cables · -16°C', 'Sirenas lejanas · -19°C'];
-
+    const sceneNames = { home: 'Piso de Dima', street: 'Vecindario nevado', shop: 'Interior del colmado', cafe: 'Café de barrio', safehouse: 'Piso franco de la gang' };
+    const weather = ['Nieve seca · -18°C', 'Viento negro · -22°C', 'Hielo en cables · -16°C', 'Sirenas lejos · -19°C'];
     const tasks = [
-      { id: 'sort', name: 'Clasificar filtraciones falsas', pay: 62, rep: 1, suspicion: 7, morale: -3, difficulty: 2, text: 'Ordenas rumores, cebos y archivos ficticios sin tocar sistemas reales.' },
-      { id: 'panel', name: 'Reparar panel oscuro', pay: 74, rep: 1, suspicion: 9, morale: -5, difficulty: 3, text: 'Maquetas una consola teatral para criminales que nunca te miran a los ojos.' },
-      { id: 'avatar', name: 'Negociar con un avatar', pay: 96, rep: 2, suspicion: 14, morale: -9, difficulty: 4, text: 'Usas plantillas amenazantes ficticias; la pantalla parece devolverte vergüenza.' },
-      { id: 'filter', name: 'Filtrar objetivos dudosos', pay: 48, rep: 0, suspicion: 4, morale: 4, difficulty: 2, text: 'Apartas hospitales, escuelas y gente vulnerable. La banda protesta.' },
-      { id: 'legal', name: 'Freelance legal nocturno', pay: 42, rep: -1, suspicion: -5, morale: 7, difficulty: 1, text: 'Arreglas una web de panadería. Paga poco, pero no tienes que mirar atrás.', legal: true }
+      { id: 'triage', name: 'Clasificación ficticia', pay: 70, rep: 1, suspicion: 7, morale: -3, empathy: 0, mode: 'focus', text: 'Clasificas piezas narrativas y descartas daño innecesario.' },
+      { id: 'panel', name: 'Rediseñar panel oscuro', pay: 86, rep: 1, suspicion: 9, morale: -4, empathy: -2, mode: 'focus', text: 'Construyes una interfaz teatral sin sistemas reales detrás.' },
+      { id: 'negotiate', name: 'Negociación con avatar', pay: 105, rep: 2, suspicion: 15, morale: -9, empathy: -5, mode: 'dialogue', text: 'Escribes una escena de presión moral. La culpa se queda sentada.' },
+      { id: 'filter', name: 'Filtrar víctimas vulnerables', pay: 45, rep: 0, suspicion: 3, morale: 7, empathy: 6, mode: 'dialogue', text: 'Apartas hospitales, escuelas y personas frágiles del tablero ficticio.' },
+      { id: 'legal', name: 'Freelance legal', pay: 46, rep: -1, suspicion: -5, morale: 8, empathy: 4, mode: 'focus', legal: true, text: 'Arreglas una web local. Paga poco, pero Dima respira.' }
     ];
-
-    const shopItems = {
+    const shops = {
       shop: [
-        { name: 'Pan negro y conservas', cost: 48, run: () => { state.ration += 2; addLog('Compras dos raciones. La tendera evita preguntar de dónde viene el dinero.'); } },
-        { name: 'Medicinas baratas', cost: 70, run: () => { state.meds += 1; state.morale = clamp(state.morale + 4); addLog('Guardas medicinas para una mala noche.'); } },
-        { name: 'Pagar electricidad prepago', cost: 90, run: () => { state.heat = clamp(state.heat + 38); state.suspicion = clamp(state.suspicion - 1); addLog('Metes crédito al contador. El radiador deja de sonar como chatarra.'); } }
+        { name: 'Comprar pan, trigo y conservas', cost: 52, desc: '+2 raciones', run: () => { state.ration += 2; addLog('La tendera guarda dos raciones en una bolsa sin preguntar demasiado.'); } },
+        { name: 'Medicinas discretas', cost: 75, desc: '+1 medicina, +moral', run: () => { state.meds++; state.morale = clamp(state.morale + 5); addLog('Compras medicinas. El cuerpo agradece que aún pienses en mañana.'); } },
+        { name: 'Crédito de electricidad', cost: 95, desc: '+calefacción', run: () => { state.heat = clamp(state.heat + 42); addLog('El radiador cobra vida con un silbido oxidado.'); } },
+        { name: 'Hablar con la tendera', cost: 0, desc: 'rumores y confianza', run: () => talkNpc('shopkeep') }
       ],
       cafe: [
-        { name: 'Té hirviendo', cost: 24, run: () => { state.tea += 1; state.heat = clamp(state.heat + 18); state.morale = clamp(state.morale + 8); addLog('El té abriga más la cabeza que las manos.'); } },
-        { name: 'Escuchar rumores', cost: 35, run: () => { state.suspicion = clamp(state.suspicion - 7); state.story = Math.max(state.story, 1); addPhone('system', 'Un taxista menciona redadas cerca de proveedores de fibra. La calle también es una red.'); addLog('Compras rumores. La sospecha baja un poco.'); } },
-        { name: 'Comida caliente', cost: 58, run: () => { state.hunger = clamp(state.hunger + 45); state.morale = clamp(state.morale + 6); addLog('Sopa grasienta, pan duro, calor real.'); } }
+        { name: 'Té y sopa', cost: 62, desc: '+hambre, +calor, +moral', run: () => { state.hunger = clamp(state.hunger + 42); state.heat = clamp(state.heat + 16); state.morale = clamp(state.morale + 7); addLog('Sopa caliente. Por diez minutos, el mundo parece menos criminal.'); } },
+        { name: 'Escuchar rumores', cost: 35, desc: '-sospecha, desbloquea escape', run: () => { state.suspicion = clamp(state.suspicion - 7); state.story = Math.max(state.story, 1); addPhone('npc', 'Rumor: alguien vende papeles en el piso franco, pero la policía vigila a compradores nerviosos.'); addLog('Pagas por rumores y aprendes a caminar con menos ruido.'); } },
+        { name: 'Invitar té a una estudiante', cost: 28, desc: '+empatía, +confianza calle', run: () => { state.empathy = clamp(state.empathy + 6); state.streetTrust += 4; addLog('La estudiante te habla de becas, frío y miedo a los hombres con coches oscuros.'); } }
       ],
       blackmarket: [
-        { name: 'Portátil usado mejorado', cost: 260, run: () => { state.skill += 1; state.suspicion = clamp(state.suspicion + 8); addLog('Compras piezas usadas. Trabajas más rápido, pero alguien apunta tu cara.'); } },
-        { name: 'Documentos para marcharte', cost: 520, run: () => { state.story = Math.max(state.story, 3); state.suspicion = clamp(state.suspicion + 12); addPhone('gang', 'Handler: “Si compras salida, más vale que no sea para correr de nosotros.”'); addLog('Consigues papeles dudosos. El final de escape está más cerca.'); } },
-        { name: 'Estufa clandestina', cost: 180, run: () => { state.heat = clamp(state.heat + 60); state.suspicion = clamp(state.suspicion + 4); addLog('La estufa huele a cable quemado, pero te devuelve los dedos.'); } }
+        { name: 'Portátil reacondicionado', cost: 280, desc: '+habilidad, +sospecha', run: () => { state.skill += 1; state.suspicion = clamp(state.suspicion + 8); addLog('Compras piezas usadas. La pantalla corre mejor; tu cara queda en otra memoria.'); } },
+        { name: 'Documentos de salida', cost: 560, desc: 'ruta de escape, +sospecha', run: () => { state.story = Math.max(state.story, 3); state.suspicion = clamp(state.suspicion + 12); addPhone('gang', 'Handler: “Los que compran salidas suelen deber entradas.”'); addLog('Obtienes papeles dudosos. Una ruta de escape ya no parece una fantasía.'); } },
+        { name: 'Estufa clandestina', cost: 190, desc: '+calefacción, +riesgo', run: () => { state.heat = clamp(state.heat + 60); state.suspicion = clamp(state.suspicion + 4); addLog('La estufa huele a plástico caliente, pero devuelve color a los dedos.'); } }
       ]
     };
 
@@ -608,388 +559,115 @@
     let mini = null;
 
     function clamp(v, min = 0, max = 100) { return Math.max(min, Math.min(max, v)); }
-    function rub(n) { return `${n}₽`; }
+    function rub(n) { return `${Math.round(n)}₽`; }
     function isNight() { return state.hour >= 22 || state.hour < 6; }
-
-    function addLog(text, cls = '') {
-      const p = document.createElement('p');
-      p.className = cls;
-      p.textContent = `Día ${state.day}, ${String(state.hour).padStart(2, '0')}:00 — ${text}`;
-      logEl.prepend(p);
-    }
-
-    function addPhone(type, text) {
-      const p = document.createElement('p');
-      p.className = `msg ${type}`;
-      p.textContent = text;
-      phoneEl.prepend(p);
-    }
-
-    function statBar(label, value, color, extra = '') {
-      return `<div class="stat"><div class="stat-row"><strong>${label}</strong><span>${extra || Math.round(value) + '%'}</span></div><div class="bar"><div class="fill" style="width:${clamp(value)}%;background:${color};color:${color}"></div></div></div>`;
-    }
+    function addLog(text, cls = '') { const p = document.createElement('p'); p.className = cls; p.textContent = `Día ${state.day}, ${String(state.hour).padStart(2, '0')}:00 — ${text}`; logEl.prepend(p); }
+    function addPhone(type, text) { const p = document.createElement('p'); p.className = `msg ${type}`; p.textContent = text; phoneEl.prepend(p); }
+    function statBar(label, value, color, extra = '') { return `<div class="stat"><div class="stat-row"><strong>${label}</strong><span>${extra || Math.round(value) + '%'}</span></div><div class="bar"><div class="fill" style="width:${clamp(value)}%;background:${color};color:${color}"></div></div></div>`; }
 
     function render() {
       document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
-      document.getElementById(`${state.scene}Scene`).classList.add('active');
+      $(`${state.scene}Scene`).classList.add('active');
       sceneTitle.textContent = sceneNames[state.scene];
-      weatherText.textContent = weathers[(state.day + Math.floor(state.hour / 6)) % weathers.length];
+      weatherText.textContent = weather[(state.day + Math.floor(state.hour / 6)) % weather.length];
       world.classList.toggle('night', isNight());
-      avatar.style.left = `${state.x}%`;
-      avatar.style.top = `${state.y}%`;
-      document.getElementById('policeCar')?.classList.toggle('alert', state.lastPolice || state.suspicion > 70);
-
-      statsEl.innerHTML = `
-        <div class="stat"><div class="stat-row"><strong>Dinero</strong><span class="money">${rub(state.money)}</span></div><div class="stat-row"><span>Alquiler</span><span>${rub(state.rentDue)} en ${state.rentTimer} días</span></div><div class="stat-row"><span>Deuda informal</span><span>${rub(state.debt)}</span></div></div>
-        ${statBar('Hambre', state.hunger, 'var(--green)')}
-        ${statBar('Calefacción', state.heat, 'var(--cyan)')}
-        ${statBar('Moral', state.morale, 'var(--amber)')}
-        ${statBar('Cansancio', state.fatigue, 'var(--violet)')}
-        ${statBar('Sospecha policial', state.suspicion, state.suspicion > 72 ? 'var(--red)' : 'var(--magenta)')}
-        ${statBar('Reputación con la gang', clamp(50 + state.gangRep * 9), 'var(--magenta)', state.gangRep)}
-        ${statBar('Habilidad informática', clamp(state.skill * 20), 'var(--green)', `Nivel ${state.skill}`)}
-      `;
-      inventoryEl.innerHTML = `<span class="chip">Raciones <b>${state.ration}</b></span><span class="chip">Té <b>${state.tea}</b></span><span class="chip">Medicinas <b>${state.meds}</b></span><span class="chip">Trabajos <b>${state.completedJobs}</b></span>`;
-      document.getElementById('useFoodBtn').disabled = state.ration <= 0 || state.over;
-      updateQuest();
-      updateHotspots();
-      checkEndings();
+      player.style.left = `${state.x}%`; player.style.top = `${state.y}%`;
+      $('policeCar')?.classList.toggle('alert', state.lastPolice || state.suspicion > 70);
+      statsEl.innerHTML = `<div class="stat"><div class="stat-row"><strong>Dinero</strong><span class="money">${rub(state.money)}</span></div><div class="stat-row"><span>Alquiler</span><span>${rub(state.rentDue)} en ${state.rentTimer} días</span></div><div class="stat-row"><span>Deuda informal</span><span>${rub(state.debt)}</span></div></div>${statBar('Hambre', state.hunger, 'var(--green)')}${statBar('Calefacción', state.heat, 'var(--cyan)')}${statBar('Moral', state.morale, 'var(--gold)')}${statBar('Cansancio', state.fatigue, 'var(--blue)')}${statBar('Sospecha policial', state.suspicion, state.suspicion > 72 ? 'var(--red)' : 'var(--rose)')}${statBar('Empatía', state.empathy, 'var(--rose-2)')}${statBar('Reputación gang', clamp(50 + state.gangRep * 9), 'var(--rose)', state.gangRep)}${statBar('Habilidad', clamp(state.skill * 20), 'var(--green)', `Nivel ${state.skill}`)}`;
+      inventoryEl.innerHTML = `<span class="chip">Raciones <b>${state.ration}</b></span><span class="chip">Té <b>${state.tea}</b></span><span class="chip">Medicinas <b>${state.meds}</b></span><span class="chip">Legal <b>${state.legalJobs}</b></span><span class="chip">Gang <b>${state.dirtyJobs}</b></span>`;
+      relationsEl.innerHTML = `<div class="rel"><span>Tendera</span><b>${state.streetTrust}</b></div><div class="rel"><span>Vecindario</span><b>${state.empathy}</b></div><div class="rel"><span>Handler</span><b>${state.gangRep}</b></div>`;
+      $('useFoodBtn').disabled = state.ration <= 0 || state.over;
+      updateQuest(); updateHotspots(); checkEndings();
     }
 
     function updateQuest() {
-      const rent = state.rentTimer <= 2 ? '<span class="danger">Paga el alquiler pronto.</span>' : 'Ahorra para el alquiler.';
-      const gang = state.gangRep < 2 ? 'La gang quiere pruebas de utilidad.' : 'La gang confía más en ti, y eso también es una jaula.';
-      const escape = state.story >= 3 ? 'Tienes una posible ruta de escape: junta 1400₽ con baja sospecha.' : 'Busca rumores y documentos si quieres huir.';
-      questBox.innerHTML = `<b>Objetivo actual:</b> ${rent}<br><b>Presión:</b> ${gang}<br><b>Salida:</b> ${escape}`;
+      const rent = state.rentTimer <= 2 ? '<span class="danger">Paga el alquiler ya.</span>' : 'Ahorra para el alquiler.';
+      const moral = state.empathy > 55 ? 'La gente empieza a verte como algo más que una sombra.' : 'Hablar con vecinos puede abrir rutas menos oscuras.';
+      const escape = state.story >= 3 ? 'Ruta de escape disponible: junta 1500₽ y mantén baja la sospecha.' : 'Busca rumores y documentos si quieres huir.';
+      questBox.innerHTML = `<b>Objetivo:</b> ${rent}<br><b>Calle:</b> ${moral}<br><b>Salida:</b> ${escape}`;
     }
-
-    function updateHotspots() {
-      const active = document.querySelector(`#${state.scene}Scene`);
-      document.querySelectorAll('.hotspot').forEach(h => h.classList.remove('near'));
-      const near = getNearHotspot(active);
-      if (near) near.classList.add('near');
-      document.getElementById('interactBtn').disabled = !near || state.over;
-    }
-
-    function readPercent(style, prop, fallbackProp) {
-      const raw = style[prop];
-      if (raw) return parseFloat(raw);
-      return 100 - parseFloat(style[fallbackProp]) - parseFloat(style[prop === 'left' ? 'width' : 'height']);
-    }
-
+    function readPercent(style, prop, fallback) { return style[prop] ? parseFloat(style[prop]) : 100 - parseFloat(style[fallback]) - parseFloat(style[prop === 'left' ? 'width' : 'height']); }
     function getNearHotspot(active = document.querySelector(`#${state.scene}Scene`)) {
-      return [...active.querySelectorAll('.hotspot')].find(spot => {
-        const left = readPercent(spot.style, 'left', 'right');
-        const top = readPercent(spot.style, 'top', 'bottom');
-        const width = parseFloat(spot.style.width);
-        const height = parseFloat(spot.style.height);
-        return state.x >= left - 4 && state.x <= left + width + 4 && state.y >= top - 4 && state.y <= top + height + 4;
+      return [...active.querySelectorAll('.hotspot')].find(h => {
+        const left = readPercent(h.style, 'left', 'right'); const top = readPercent(h.style, 'top', 'bottom');
+        const width = parseFloat(h.style.width); const height = parseFloat(h.style.height);
+        return state.x >= left - 4 && state.x <= left + width + 4 && state.y >= top - 5 && state.y <= top + height + 5;
       });
     }
+    function updateHotspots() { document.querySelectorAll('.hotspot').forEach(h => h.classList.remove('near')); const near = getNearHotspot(); if (near) near.classList.add('near'); $('interactBtn').disabled = !near || state.over; }
 
     function passTime(hours = 1, reason = '') {
       for (let i = 0; i < hours; i++) {
-        state.hour++;
-        state.hunger = clamp(state.hunger - 3.7);
-        state.heat = clamp(state.heat - (isNight() ? 3.4 : 2.1));
-        state.fatigue = clamp(state.fatigue + 4.4);
-        if (state.heat < 22) state.morale = clamp(state.morale - 2.5);
-        if (state.hunger < 18) state.morale = clamp(state.morale - 3.2);
-        if (state.fatigue > 82) state.morale = clamp(state.morale - 2);
-        if (state.hour >= 24) {
-          state.hour = 0;
-          state.day++;
-          state.rentTimer--;
-          state.suspicion = clamp(state.suspicion + Math.max(0, state.gangRep));
-          if (state.debt > 0) state.debt += 20;
-          addLog('La medianoche se arrastra por el bloque. Las deudas respiran en la pared.', 'warning');
-        }
+        state.hour++; state.hunger = clamp(state.hunger - 3.5); state.heat = clamp(state.heat - (isNight() ? 3.2 : 2)); state.fatigue = clamp(state.fatigue + 4.2);
+        if (state.heat < 22) state.morale = clamp(state.morale - 2.4); if (state.hunger < 18) state.morale = clamp(state.morale - 3); if (state.fatigue > 82) state.morale = clamp(state.morale - 1.8);
+        if (state.hour >= 24) { state.hour = 0; state.day++; state.rentTimer--; state.suspicion = clamp(state.suspicion + Math.max(0, state.gangRep)); if (state.debt > 0) state.debt += 20; addLog('La medianoche pasa por el bloque como una patrulla sin luces.', 'warning'); }
       }
-      if (reason) addLog(reason);
-      policePulse();
-      render();
+      if (reason) addLog(reason); policePulse(); render();
     }
-
     function policePulse() {
-      state.lastPolice = false;
-      const nightPenalty = isNight() && state.scene !== 'home' ? 8 : 0;
-      const risk = state.suspicion + nightPenalty;
-      if (risk > 50 && Math.random() < risk / 165) {
-        state.lastPolice = true;
-        state.morale = clamp(state.morale - 8);
-        state.suspicion = clamp(state.suspicion + 4);
-        addPhone('police', 'Canal local: “Inspecciones por fraude digital en varios bloques del distrito.”');
-        addLog('Un coche policial reduce la marcha cerca de ti. Notas los dedos helados.', 'danger');
-      }
-      if (state.suspicion >= 100) endGame('La policía revienta la puerta antes del amanecer. No encontraron magia: encontraron patrones, dinero y miedo. Fin: arrestado.');
+      state.lastPolice = false; const risk = state.suspicion + (isNight() && state.scene !== 'home' ? 8 : 0);
+      if (risk > 50 && Math.random() < risk / 165) { state.lastPolice = true; state.suspicion = clamp(state.suspicion + 4); state.morale = clamp(state.morale - 7); addPhone('police', 'Noticias locales: inspecciones por fraude digital en bloques del distrito.'); addLog('Un coche policial baja la velocidad cerca de ti.', 'danger'); }
+      if (state.suspicion >= 100) endGame('La policía entra antes del amanecer. No necesitaban magia: siguieron patrones, pagos y miedo. Fin: arrestado.');
     }
 
     function interact() {
-      const spot = getNearHotspot();
-      if (!spot || state.over) return;
-      const id = spot.dataset.id;
-      if (id === 'door') return changeScene('neighborhood', 49, 86, 'Sales al vecindario nevado. La ciudad parece dibujada con cuchillos.');
-      if (id === 'home') return changeScene('home', 84, 52, 'Vuelves al piso. La pantalla del portátil ilumina las grietas.');
-      if (id === 'safehouse') return changeScene('safehouse', 49, 84, 'Bajas por una entrada sin nombre hacia el piso franco.');
-      if (id === 'street') return changeScene('neighborhood', 72, 86, 'Regresas a la nieve y a la posibilidad de una patrulla.');
-      if (id === 'computer') return openComputer();
-      if (id === 'fridge') return useFood();
-      if (id === 'bed') return sleep();
-      if (id === 'radiator') return warmHands();
-      if (id === 'shop' || id === 'cafe' || id === 'blackmarket') return openShop(id);
-      if (id === 'landlord') return payRent();
-      if (id === 'handler') return talkHandler();
+      const spot = getNearHotspot(); if (!spot || state.over) return; const id = spot.dataset.id;
+      const routes = { street: ['street', 48, 86, 'Sales a la calle. La nieve hace que todos parezcan fantasmas.'], home: ['home', 84, 52, 'Vuelves al piso. La pantalla te espera como un animal despierto.'], enterShop: ['shop', 50, 82, 'Entras al colmado. Huele a pan duro, detergente y deuda.'], enterCafe: ['cafe', 50, 82, 'Entras al café. La luz cálida parece ilegal.'], streetFromShop: ['street', 18, 76, 'Sales del colmado con la bufanda más alta.'], streetFromCafe: ['street', 48, 78, 'Sales del café y la calle vuelve a morder.'], safehouse: ['safehouse', 48, 84, 'Bajas al piso franco. Nadie usa nombres reales.'], streetFromSafe: ['street', 73, 86, 'Regresas desde el piso franco a la nieve.'] };
+      if (routes[id]) return changeScene(...routes[id]);
+      if (id === 'computer') return openComputer(); if (id === 'fridge') return useFood(); if (id === 'bed') return sleep(); if (id === 'radiator') return warmHands(); if (id === 'buyShop') return openShop('shop'); if (id === 'buyCafe') return openShop('cafe'); if (id === 'blackmarket') return openShop('blackmarket'); if (id === 'landlord') return payRent(); if (id === 'handler') return talkNpc('handler'); if (id === 'talkStudent') return talkNpc('student'); if (id === 'talkWorker') return talkNpc('worker');
+    }
+    function changeScene(scene, x, y, text) { state.scene = scene; state.x = x; state.y = y; if (isNight() && scene !== 'home') state.suspicion = clamp(state.suspicion + 2); addLog(text); render(); }
+    function useFood() { if (state.ration <= 0) return addLog('No queda comida.', 'danger'); state.ration--; state.hunger = clamp(state.hunger + 34); state.morale = clamp(state.morale + 3); passTime(1, 'Comes una ración lentamente para engañar al hambre.'); }
+    function warmHands() { if (state.money >= 30) { state.money -= 30; state.heat = clamp(state.heat + 22); addLog('Pagas crédito mínimo al radiador.'); } else { state.heat = clamp(state.heat + 6); state.morale = clamp(state.morale - 2); addLog('Golpeas el radiador. Da seis minutos de calor miserable.', 'warning'); } passTime(1); }
+    function sleep() { const h = state.fatigue > 65 ? 7 : 5; state.hunger = clamp(state.hunger - 11); state.heat = clamp(state.heat - 10); state.fatigue = clamp(state.fatigue - 62); state.morale = clamp(state.morale + 16); passTime(h, 'Duermes con botas. Dima parpadea incluso en sueños.'); }
+    function payRent() { if (state.money + 120 < state.rentDue) return addLog(`El casero exige ${rub(state.rentDue)}. No acepta promesas.`, 'warning'); if (state.money < state.rentDue) { const loan = state.rentDue - state.money; state.debt += loan + 60; state.money = 0; state.suspicion = clamp(state.suspicion + 6); addLog(`Pides ${rub(loan)} prestados. La deuda aprende tu nombre.`, 'warning'); } else { state.money -= state.rentDue; state.suspicion = clamp(state.suspicion - 7); addLog('Pagas el alquiler. Por una semana, la puerta sigue siendo tuya.', 'good'); } state.rentTimer = 7; state.rentDue += 55; render(); }
+
+    function openShop(kind) { shopTitle.textContent = kind === 'shop' ? 'Colmado de Nina' : kind === 'cafe' ? 'Café de barrio' : 'Mercado gris'; shopGrid.innerHTML = ''; shops[kind].forEach(item => { const b = document.createElement('button'); b.className = 'card-btn'; b.innerHTML = `${item.name}<small>${item.desc} · ${item.cost ? rub(item.cost) : 'gratis'}</small>`; b.disabled = state.money < item.cost; b.onclick = () => { if (state.money < item.cost) return; state.money -= item.cost; item.run(); if (item.cost > 0) passTime(1); shopModal.classList.remove('open'); render(); }; shopGrid.appendChild(b); }); shopModal.classList.add('open'); }
+    function talkNpc(who) {
+      const scripts = {
+        shopkeep: ['Nina, la tendera, te mira las ojeras y baja la voz: “No todo dinero compra pan limpio.”', [['Pedir consejo', () => { state.streetTrust += 5; state.empathy = clamp(state.empathy + 4); addPhone('npc', 'Nina: “Si la policía pregunta, no improvises. Vive normal. Compra normal.”'); }], ['Comprar fiado', () => { state.ration += 1; state.debt += 70; state.streetTrust -= 2; }]]],
+        student: ['Una estudiante dibuja flores en el vaho del cristal. “Mi madre trabaja en un hospital. Internet también puede matar.”', [['Escuchar', () => { state.empathy = clamp(state.empathy + 7); state.morale = clamp(state.morale + 3); }], ['Huir de la charla', () => { state.morale = clamp(state.morale - 2); }]]],
+        worker: ['Un obrero fuma con guantes rotos: “El alquiler sube porque saben que nadie tiene fuerzas para mudarse.”', [['Compartir té', () => { if (state.money >= 20) { state.money -= 20; state.streetTrust += 6; state.empathy = clamp(state.empathy + 4); } }], ['Preguntar por redadas', () => { state.suspicion = clamp(state.suspicion - 4); state.story = Math.max(state.story, 2); }]]],
+        handler: ['El handler sonríe poco. “La banda no es familia. Es hambre con organigrama.”', [['Pedir más acceso', () => { state.gangRep += 1; state.morale = clamp(state.morale - 4); }], ['Preguntar por salida', () => { if (state.money > 850) state.story = Math.max(state.story, 3); state.suspicion = clamp(state.suspicion + 3); }]]]
+      }[who];
+      dialogTitle.textContent = 'Conversación'; dialogText.textContent = scripts[0]; dialogChoices.innerHTML = '';
+      scripts[1].forEach(([label, fn]) => { const b = document.createElement('button'); b.className = 'card-btn'; b.textContent = label; b.onclick = () => { fn(); passTime(1); dialogModal.classList.remove('open'); render(); }; dialogChoices.appendChild(b); });
+      dialogModal.classList.add('open');
     }
 
-    function changeScene(scene, x, y, text) {
-      state.scene = scene; state.x = x; state.y = y;
-      if (isNight() && scene !== 'home') state.suspicion = clamp(state.suspicion + 2);
-      addLog(text);
-      render();
-    }
-
-    function useFood() {
-      if (state.ration <= 0) return addLog('No queda comida. Solo migas y un olor viejo a aceite.', 'danger');
-      state.ration--; state.hunger = clamp(state.hunger + 34); state.morale = clamp(state.morale + 3);
-      passTime(1, 'Comes una ración. El estómago deja de acusarte durante unas horas.');
-    }
-
-    function warmHands() {
-      if (state.money >= 30) { state.money -= 30; state.heat = clamp(state.heat + 22); addLog('Pagas crédito mínimo al radiador.'); }
-      else { state.heat = clamp(state.heat + 6); state.morale = clamp(state.morale - 2); addLog('Golpeas el radiador. Responde con seis minutos de calor miserable.', 'warning'); }
-      passTime(1);
-    }
-
-    function sleep() {
-      const hours = state.fatigue > 65 ? 7 : 5;
-      state.hunger = clamp(state.hunger - 11);
-      state.heat = clamp(state.heat - 10);
-      state.fatigue = clamp(state.fatigue - 62);
-      state.morale = clamp(state.morale + 16);
-      passTime(hours, 'Duermes con abrigo y botas. Sueñas que el cursor parpadea dentro de tu cráneo.');
-    }
-
-    function payRent() {
-      if (state.money + 120 < state.rentDue) return addLog(`El casero exige ${rub(state.rentDue)}. Te mira como si ya fueras un mueble abandonado.`, 'warning');
-      if (state.money < state.rentDue) {
-        const loan = state.rentDue - state.money;
-        state.debt += loan + 60;
-        state.money = 0;
-        state.suspicion = clamp(state.suspicion + 6);
-        state.rentTimer = 7;
-        state.rentDue += 55;
-        addLog(`Pides ${rub(loan)} prestados para pagar. La deuda informal crece con dientes.`, 'warning');
-      } else {
-        state.money -= state.rentDue;
-        state.rentTimer = 7;
-        state.rentDue += 55;
-        state.suspicion = clamp(state.suspicion - 7);
-        addLog('Pagas el alquiler. Por una semana, la puerta sigue siendo tuya.', 'good');
-      }
-      render();
-    }
-
-    function talkHandler() {
-      if (state.gangRep < 1) {
-        state.suspicion = clamp(state.suspicion + 3);
-        addPhone('gang', 'Handler: “Necesitamos resultados, Dima. No poesía triste.”');
-        addLog('El handler no te amenaza directamente. Eso lo hace peor.', 'warning');
-      } else if (state.money >= 900 && state.story >= 3) {
-        addPhone('gang', 'Handler: “Todos quieren desaparecer. Pocos pagan el precio.”');
-        addLog('El handler insinúa una salida: dinero, papeles y silencio.', 'warning');
-      } else {
-        state.morale = clamp(state.morale - 4);
-        state.gangRep += 1;
-        addLog('El handler te da más acceso y menos humanidad. La reputación sube.', 'danger');
-      }
-      passTime(1);
-    }
-
-    function openShop(kind) {
-      shopGrid.innerHTML = '';
-      shopItems[kind].forEach(item => {
-        const b = document.createElement('button');
-        b.className = 'choice';
-        b.innerHTML = `${item.name}<small>Coste ${rub(item.cost)}</small>`;
-        b.disabled = state.money < item.cost;
-        b.addEventListener('click', () => {
-          if (state.money < item.cost) return;
-          state.money -= item.cost;
-          item.run();
-          passTime(1);
-          shopModal.classList.remove('open');
-        });
-        shopGrid.appendChild(b);
-      });
-      shopModal.classList.add('open');
-    }
-
-    function openComputer() {
-      computerModal.classList.add('open');
-      terminal.textContent = `> enlace de la banda: activo\n> alias: DIMA_404\n> reputación: ${state.gangRep}\n> habilidad: ${state.skill}\n> sospecha estimada: ${state.suspicion}%\n\nElige un encargo. Los encargos criminales pagan más, pero suben sospecha y erosionan moral. Los encargos legales son lentos, menos rentables y molestan a la banda.`;
-      renderTasks(tasks);
-    }
-
-    function renderTasks(list) {
-      taskGrid.innerHTML = '';
-      list.forEach(task => {
-        const b = document.createElement('button');
-        b.className = `choice ${task.legal ? 'safe-btn' : ''}`;
-        b.innerHTML = `${task.name}<small>Pago ${rub(task.pay)} · sospecha ${task.suspicion >= 0 ? '+' : ''}${task.suspicion} · dificultad ${task.difficulty}</small>`;
-        b.addEventListener('click', () => startTask(task));
-        taskGrid.appendChild(b);
-      });
-    }
-
-    function startTask(task) {
-      activeTask = task;
-      mini = { progress: 0, trace: Math.max(8, 22 + task.difficulty * 7 - state.skill * 3), stability: 72 - task.difficulty * 4, turns: 0 };
-      computerModal.classList.remove('open');
-      miniGameModal.classList.add('open');
-      miniTerminal.textContent = `> tarea ficticia: ${task.name}\n> objetivo narrativo: completar 100% sin que la presión llegue a 100\n> recuerda: son nodos abstractos, no técnicas reales.\n`;
-      renderMini();
-    }
-
+    function openComputer() { computerModal.classList.add('open'); terminal.textContent = `> alias: DIMA_404\n> reputación gang: ${state.gangRep}\n> habilidad: ${state.skill}\n> sospecha estimada: ${state.suspicion}%\n\nElige encargos abstractos. Criminal = más dinero y más sombra. Legal = lento, pero conserva humanidad.`; renderTasks(tasks); }
+    function renderTasks(list) { taskGrid.innerHTML = ''; list.forEach(t => { const b = document.createElement('button'); b.className = `card-btn ${t.legal ? 'btn-safe' : ''}`; b.innerHTML = `${t.name}<small>${t.mode === 'focus' ? 'Minijuego de foco' : 'Minijuego de diálogo'} · Pago ${rub(t.pay)} · sospecha ${t.suspicion >= 0 ? '+' : ''}${t.suspicion}</small>`; b.onclick = () => startMini(t); taskGrid.appendChild(b); }); }
+    function startMini(task) { activeTask = task; mini = { clarity: 38 + state.skill * 8, pressure: 20 + (task.legal ? 0 : 10), humanity: state.empathy, progress: 0, turns: 0 }; computerModal.classList.remove('open'); miniModal.classList.add('open'); miniLog.textContent = `> ${task.name}\n> objetivo: 100 progreso sin perder claridad ni humanidad.\n`; renderMini(); }
     function renderMini() {
-      miniStatus.innerHTML = `<div>Progreso <b class="good">${mini.progress}%</b></div><div>Presión <b class="danger">${mini.trace}%</b></div><div>Estabilidad <b class="cyan">${mini.stability}%</b></div>`;
-      nodeGrid.innerHTML = '';
-      const nodes = [
-        { label: 'Revisar patrón', p: 18 + state.skill * 3, t: 8, s: -3, cls: 'good', line: 'Analizas una pauta inventada y ganas claridad.' },
-        { label: 'Forzar entrega', p: 28, t: 19, s: -10, cls: 'bad', line: 'Aceleras el encargo. La presión sube.' },
-        { label: 'Pausa fría', p: 8, t: -10, s: 8, cls: 'good', line: 'Respiras, tomas distancia, reduces ruido.' },
-        { label: 'Improvisar parche', p: 20, t: 12, s: -18, cls: '', line: 'El parche narrativo funciona, pero tiembla.' }
-      ].sort(() => Math.random() - .5);
-      nodes.forEach(node => {
-        const b = document.createElement('button');
-        b.className = `node ${node.cls}`;
-        b.innerHTML = `${node.label}<small>+${node.p} progreso · ${node.t >= 0 ? '+' : ''}${node.t} presión · ${node.s >= 0 ? '+' : ''}${node.s} estabilidad</small>`;
-        b.addEventListener('click', () => chooseNode(node));
-        nodeGrid.appendChild(b);
-      });
+      miniBars.innerHTML = `${statBar('Progreso', mini.progress, 'var(--green)')}${statBar('Claridad', mini.clarity, 'var(--cyan)')}${statBar('Presión', mini.pressure, 'var(--red)')}${statBar('Humanidad', mini.humanity, 'var(--rose-2)')}`;
+      pulseRing.classList.toggle('bad', mini.pressure > 70); choiceGrid.innerHTML = '';
+      const choices = activeTask.mode === 'dialogue' ? [
+        ['Responder con calma', '+humanidad, +progreso bajo', () => changeMini(14, -8, 8, 0, 'Dima escribe sin crueldad. La pantalla no gana del todo.')],
+        ['Presionar para cobrar', '+progreso alto, +presión, -humanidad', () => changeMini(31, 14, -12, -2, 'El texto funciona en la ficción, pero algo en Dima se encoge.')],
+        ['Poner límite moral', '+humanidad, -reputación gang', () => changeMini(18, -3, 13, -1, 'Apartas a gente vulnerable. La banda lo nota.')],
+        ['Pausa: mirar por la ventana', '-presión, +claridad', () => changeMini(7, -13, 4, 8, 'La nieve borra las huellas durante un minuto.')]
+      ] : [
+        ['Respirar y ordenar', '+claridad, -presión', () => changeMini(13, -10, 4, 10, 'Ordenas tarjetas ficticias y recuperas foco.')],
+        ['Resolver patrón visual', '+progreso, +claridad', () => changeMini(24, 7, 0, 8, 'Encuentras una relación narrativa sin tocar sistemas reales.')],
+        ['Acelerar sin pensar', '+progreso alto, +presión', () => changeMini(34, 18, -7, -8, 'Avanzas rápido. El pecho se cierra.')],
+        ['Cambiar a tarea legal', '-presión, +humanidad', () => changeMini(11, -9, 10, 2, 'Recuerdas que no todo pago tiene que quemar.')]
+      ];
+      choices.forEach(([label, desc, fn]) => { const b = document.createElement('button'); b.className = 'card-btn'; b.innerHTML = `${label}<small>${desc}</small>`; b.onclick = fn; choiceGrid.appendChild(b); });
     }
+    function changeMini(progress, pressure, humanity, clarity, line) { mini.turns++; mini.progress = clamp(mini.progress + progress); mini.pressure = clamp(mini.pressure + pressure + (activeTask.legal ? -2 : 2)); mini.humanity = clamp(mini.humanity + humanity); mini.clarity = clamp(mini.clarity + clarity - Math.max(0, mini.pressure - 75) / 8); miniLog.textContent += `\n> ${line}`; if (mini.pressure >= 100 || mini.clarity <= 0 || mini.humanity <= 0) return finishMini(false); if (mini.progress >= 100) return finishMini(true); renderMini(); }
+    function finishMini(success) { if (success) { state.money += activeTask.pay; state.gangRep += activeTask.rep; state.suspicion = clamp(state.suspicion + activeTask.suspicion + Math.floor(mini.pressure / 22)); state.morale = clamp(state.morale + activeTask.morale); state.empathy = clamp(state.empathy + activeTask.empathy + Math.floor((mini.humanity - 50) / 20)); state.skill += activeTask.mode === 'focus' ? .16 : .08; if (activeTask.legal) state.legalJobs++; else state.dirtyJobs++; addLog(`${activeTask.name}: cobras ${rub(activeTask.pay)}.`, activeTask.legal ? 'good' : 'warning'); addPhone(activeTask.legal ? 'system' : 'gang', activeTask.legal ? 'Cliente legal: “Gracias. Funciona.”' : 'Handler: “Pago liberado. No preguntes.”'); } else { state.suspicion = clamp(state.suspicion + 9); state.morale = clamp(state.morale - 8); state.gangRep -= activeTask.legal ? 0 : 1; addLog('El minijuego se rompe: Dima cierra todo con las manos temblando.', 'danger'); } miniModal.classList.remove('open'); passTime(success ? 2 : 1); }
+    function legalBoard() { terminal.textContent = '> tablón legal local\n> clientes pequeños, pagos pequeños, menos culpa\n'; renderTasks(tasks.filter(t => t.legal || t.id === 'filter')); }
+    function cleanDesk() { state.suspicion = clamp(state.suspicion - 3); state.fatigue = clamp(state.fatigue + 6); passTime(1, 'Ordenas escritorio, notas y respiración. Menos ruido, no magia.'); }
+    function openJournal() { journalText.textContent = `Día ${state.day}.\nDinero: ${rub(state.money)}. Alquiler: ${rub(state.rentDue)} en ${state.rentTimer} días.\n\nNotas:\n- Las tiendas ahora tienen interiores; hablar con gente sube confianza y abre pistas.\n- Minijuegos: mantén presión baja, claridad alta y humanidad viva.\n- Escape: documentos + 1500₽ + sospecha baja.\n- Reconstrucción: trabajos legales + relaciones + paciencia.\n\nDima: “La cara en el monitor soy yo, no un alias.”`; journalModal.classList.add('open'); }
+    function checkEndings() { if (state.over) return; if (state.rentTimer < 0) return endGame('El casero cambia la cerradura. Dima queda fuera con nieve en las pestañas. Fin: desahucio.'); if (state.hunger <= 0) return endGame('El hambre apaga cualquier épica. Fin: colapso.'); if (state.morale <= 0) return endGame('Dima apaga el portátil y se marcha a la estación. Fin: rendición silenciosa.'); if (state.debt > 650 && state.money < 220) return endGame('La deuda deja de ser cifra y se vuelve gente en la escalera. Fin: atrapado por la calle.'); if (state.story >= 3 && state.money >= 1500 && state.suspicion < 58 && state.morale > 35) return endGame('Con papeles dudosos, una mochila y una última mirada al bloque, Dima sube al tren. Fin: escape.'); if (state.legalJobs >= 8 && state.empathy > 55 && state.suspicion < 45) return endGame('Dima corta con la gang. La pobreza no desaparece, pero ya no manda la pantalla. Fin: reconstrucción.'); }
+    function endGame(text) { state.over = true; $('endingText').innerHTML = `<h2>Final</h2><p>${text}</p><button onclick="location.reload()">Reiniciar</button>`; $('endModal').classList.add('open'); }
+    function resetGame() { Object.keys(state).forEach(k => delete state[k]); Object.assign(state, initialState); logEl.innerHTML = ''; phoneEl.innerHTML = ''; document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open')); addLog('La nieve cubre Moscú. Dima tiene poco dinero, frío y una invitación peligrosa.', 'warning'); addPhone('gang', 'Mensaje cifrado: “DIMA_404, trabajo disponible. Pagamos hoy.”'); addPhone('system', 'Recordatorio: alquiler pendiente. Comer también cuenta como misión.'); render(); world.focus(); }
+    function tickMove() { let walking = false; if (!state.over && !document.querySelector('.modal.open')) { const speed = isNight() && state.scene !== 'home' ? .72 : .95; if (keys.has('arrowleft') || keys.has('a')) { state.x -= speed; walking = true; } if (keys.has('arrowright') || keys.has('d')) { state.x += speed; walking = true; } if (keys.has('arrowup') || keys.has('w')) { state.y -= speed; walking = true; } if (keys.has('arrowdown') || keys.has('s')) { state.y += speed; walking = true; } state.x = clamp(state.x, 4, 96); state.y = clamp(state.y, 8, 92); updateHotspots(); player.style.left = `${state.x}%`; player.style.top = `${state.y}%`; } player.classList.toggle('walking', walking); requestAnimationFrame(tickMove); }
 
-    function chooseNode(node) {
-      mini.turns++;
-      mini.progress = clamp(mini.progress + node.p, 0, 140);
-      mini.trace = clamp(mini.trace + node.t + Math.max(0, activeTask.difficulty - state.skill), 0, 140);
-      mini.stability = clamp(mini.stability + node.s, 0, 100);
-      miniTerminal.textContent += `\n> ${node.label}: ${node.line}`;
-      if (mini.stability <= 0) mini.trace = clamp(mini.trace + 18, 0, 140);
-      if (mini.trace >= 100) return finishTask(false, 'La presión ficticia se dispara. Cierras todo antes de que el juego te hunda más.');
-      if (mini.progress >= 100) return finishTask(true, activeTask.text);
-      renderMini();
-    }
-
-    function finishTask(success, text) {
-      if (success) {
-        state.money += activeTask.pay;
-        state.gangRep += activeTask.rep;
-        state.suspicion = clamp(state.suspicion + activeTask.suspicion + Math.floor(mini.trace / 18));
-        state.morale = clamp(state.morale + activeTask.morale);
-        state.skill += mini.turns <= 4 && !activeTask.legal ? 0.15 : 0.08;
-        state.completedJobs++;
-        if (activeTask.legal) state.legalJobs++;
-        addLog(`${activeTask.name}: ganas ${rub(activeTask.pay)}.`, activeTask.suspicion > 8 ? 'warning' : 'good');
-        addPhone(activeTask.legal ? 'system' : 'gang', activeTask.legal ? 'Cliente legal: “Gracias, funciona en mi móvil.”' : 'Handler: “Pago liberado. No hagas preguntas.”');
-      } else {
-        state.suspicion = clamp(state.suspicion + 9);
-        state.morale = clamp(state.morale - 7);
-        state.gangRep -= activeTask.legal ? 0 : 1;
-        addLog(text, 'danger');
-        addPhone('police', 'Notificación de noticias: nueva operación contra mercados clandestinos.');
-      }
-      miniGameModal.classList.remove('open');
-      passTime(success ? 2 : 1);
-      if (state.gangRep < -4) endGame('La banda te considera inútil y peligroso. Te expulsan de los canales. Sigues libre, pero con una deuda moral que tarda en irse. Fin: salida amarga.');
-    }
-
-    function burnEvidence() {
-      state.suspicion = clamp(state.suspicion - 3);
-      state.fatigue = clamp(state.fatigue + 7);
-      terminal.textContent += '\n\n> Ordenas notas del juego, separas fantasía y realidad, apagas ruido. No hay trucos: solo menos caos.';
-      passTime(1, 'Limpias el escritorio y reduces un poco tu exposición ficticia.');
-    }
-
-    function legalBoard() {
-      terminal.textContent = '> tablón local legal\n> clientes pequeños, pagos pequeños, conciencia menos pesada\n';
-      renderTasks(tasks.filter(t => t.legal || t.id === 'filter'));
-    }
-
-    function openJournal() {
-      journalText.textContent = `Día ${state.day}.\n\nDinero: ${rub(state.money)}. Alquiler: ${rub(state.rentDue)} en ${state.rentTimer} días.\n\nNotas:\n- Comer no es progreso, pero sin comer no hay partida.\n- La reputación con la gang abre puertas y cierra salidas.\n- La sospecha sube con trabajos turbios, noches fuera y compras grises.\n- Final de escape: reúne bastante dinero, consigue documentos y mantén la sospecha bajo control.\n- Final digno: también puedes sobrevivir con trabajos legales, aunque sea más lento.\n\nDima escribe: “La pantalla no me obliga. Me ofrece excusas.”`;
-      journalModal.classList.add('open');
-    }
-
-    function checkEndings() {
-      if (state.over) return;
-      if (state.rentTimer < 0) return endGame('El casero cambia la cerradura. Tus bolsas quedan sobre nieve gris. Fin: desahucio.');
-      if (state.hunger <= 0) return endGame('El hambre gana antes que la policía, antes que la banda, antes que cualquier plan. Fin: colapso.');
-      if (state.morale <= 0) return endGame('Dima apaga el portátil y camina hasta la estación sin mirar atrás. Fin: rendición silenciosa.');
-      if (state.debt > 620 && state.money < 200) return endGame('La deuda informal ya no es un número: son nudillos en la puerta. Fin: absorbido por la calle.');
-      if (state.story >= 3 && state.money >= 1400 && state.suspicion < 62 && state.morale > 32) return endGame('Con papeles dudosos, una mochila y suficiente dinero, Dima sube a un tren antes del alba. No es redención; es una segunda oportunidad. Fin: escape.');
-      if (state.legalJobs >= 8 && state.rentTimer >= 0 && state.suspicion < 45) return endGame('A base de encargos pequeños y noches largas, Dima corta el contacto con la gang. Sigue pobre, pero vivo y limpio. Fin: reconstrucción lenta.');
-    }
-
-    function endGame(text) {
-      state.over = true;
-      document.getElementById('endingText').innerHTML = `<h2>Final</h2><p>${text}</p><button onclick="location.reload()">Reiniciar</button>`;
-      endModal.classList.add('open');
-    }
-
-    function resetGame() {
-      Object.keys(state).forEach(k => delete state[k]);
-      Object.assign(state, initialState);
-      logEl.innerHTML = '';
-      phoneEl.innerHTML = '';
-      [computerModal, miniGameModal, shopModal, journalModal, endModal].forEach(m => m.classList.remove('open'));
-      addLog('La nieve cubre Moscú. Tienes poco dinero, hambre y una invitación peligrosa en el portátil.', 'warning');
-      addPhone('gang', 'Mensaje cifrado: “DIMA_404, tenemos trabajo. Pagamos hoy.”');
-      addPhone('system', 'Recordatorio: alquiler pendiente. El casero no acepta promesas.');
-      render();
-      world.focus();
-    }
-
-    function tickMove() {
-      let walking = false;
-      if (!state.over && !document.querySelector('.modal.open')) {
-        const speed = isNight() && state.scene !== 'home' ? 0.72 : 0.95;
-        if (keys.has('arrowleft') || keys.has('a')) { state.x -= speed; walking = true; }
-        if (keys.has('arrowright') || keys.has('d')) { state.x += speed; walking = true; }
-        if (keys.has('arrowup') || keys.has('w')) { state.y -= speed; walking = true; }
-        if (keys.has('arrowdown') || keys.has('s')) { state.y += speed; walking = true; }
-        state.x = clamp(state.x, 4, 96);
-        state.y = clamp(state.y, 8, 92);
-        if (walking && Math.random() < .003 && state.scene !== 'home') state.heat = clamp(state.heat - 1);
-        updateHotspots();
-        avatar.style.left = `${state.x}%`;
-        avatar.style.top = `${state.y}%`;
-      }
-      avatar.classList.toggle('walking', walking);
-      requestAnimationFrame(tickMove);
-    }
-
-    document.addEventListener('keydown', e => {
-      const k = e.key.toLowerCase();
-      if (['arrowleft','arrowright','arrowup','arrowdown','w','a','s','d'].includes(k)) { keys.add(k); e.preventDefault(); }
-      if (k === 'e') interact();
-      if (k === 'j') openJournal();
-      if (k === 'escape') document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
-    });
+    document.addEventListener('keydown', e => { const k = e.key.toLowerCase(); if (['arrowleft','arrowright','arrowup','arrowdown','w','a','s','d'].includes(k)) { keys.add(k); e.preventDefault(); } if (k === 'e') interact(); if (k === 'j') openJournal(); if (k === 'escape') document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open')); });
     document.addEventListener('keyup', e => keys.delete(e.key.toLowerCase()));
-    document.getElementById('interactBtn').addEventListener('click', interact);
-    document.getElementById('waitBtn').addEventListener('click', () => passTime(1, 'Matas una hora mirando nieve sucia caer.'));
-    document.getElementById('useFoodBtn').addEventListener('click', useFood);
-    document.getElementById('journalBtn').addEventListener('click', openJournal);
-    document.getElementById('newGame').addEventListener('click', resetGame);
-    document.getElementById('closeComputer').addEventListener('click', () => computerModal.classList.remove('open'));
-    document.getElementById('burnEvidence').addEventListener('click', burnEvidence);
-    document.getElementById('legalBoard').addEventListener('click', legalBoard);
-    document.getElementById('abortTask').addEventListener('click', () => finishTask(false, 'Abortas el encargo. Pierdes tiempo, ganas temblor en las manos.'));
-    document.getElementById('closeShop').addEventListener('click', () => shopModal.classList.remove('open'));
-    document.getElementById('closeJournal').addEventListener('click', () => journalModal.classList.remove('open'));
-
-    resetGame();
-    tickMove();
+    $('interactBtn').onclick = interact; $('waitBtn').onclick = () => passTime(1, 'Matas una hora viendo caer nieve sucia.'); $('useFoodBtn').onclick = useFood; $('journalBtn').onclick = openJournal; $('newGame').onclick = resetGame; $('closeComputer').onclick = () => computerModal.classList.remove('open'); $('legalBoard').onclick = legalBoard; $('cleanDesk').onclick = cleanDesk; $('abortMini').onclick = () => finishMini(false); $('closeShop').onclick = () => shopModal.classList.remove('open'); $('closeDialog').onclick = () => dialogModal.classList.remove('open'); $('closeJournal').onclick = () => journalModal.classList.remove('open');
+    resetGame(); tickMove();
   </script>
 </body>
 </html>
